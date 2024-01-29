@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://laravel.com/img/logomark.min.svg" width="400"></a>||<a href="#" target="_blank"><img src="[https://laravel.com/img/logomark.min.svg](https://www.pn-tais.go.id/wp-content/themes/mahkamahagung/images/logo.png)" width="400"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://laravel.com/img/logomark.min.svg" width="50"></a>||<a href="#" target="_blank"><img src="[https://laravel.com/img/logomark.min.svg](https://www.pn-tais.go.id/wp-content/themes/mahkamahagung/images/logo.png)" width="50"></a></p>
 
 ## Tentang
 
@@ -19,7 +19,7 @@ Sebelum instalasi, anda harus mendownload terlebih dahulu [Node.js](https://node
 git clone https://github.com/ivanpakpahan2702/ptsp.git
 ```
 
-atau apabila sudah pernah dikloning sebelumnya, anda dapat mengupdatenya
+atau apabila sudah pernah dikloning sebelumnya, anda dapat mengupdatenya dengan perintah berikut.
 
 ```shell
 git checkout master
