@@ -14,5 +14,37 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard', [
+        'title' => 'Dashboard'
+    ]);
+});
+
+Route::get('/bagian-perdata', function () {
+    return view('perdata', [
+        'title' => 'Bagian Perdata'
+    ]);
+});
+
+Route::get('/bagian-pidana', function () {
+    return view('pidana', [
+        'title' => 'Bagian Pidana'
+    ]);
+});
+
+Route::get('/bagian-hukum', function () {
+    return view('hukum', [
+        'title' => 'Bagian Hukum'
+    ]);
+});
+
+Route::get('/bagian-umum', function () {
+    return view('umum', [
+        'title' => 'Bagian Umum dan Keuangan'
+    ]);
+});
+
+Route::get('/posbakum', function () {
+    return view('posbakum', [
+        'title' => 'Posbakum'
+    ]);
 });
