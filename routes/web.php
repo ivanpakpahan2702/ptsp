@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HukumController;
+use App\Http\Controllers\PerdataController;
+use App\Http\Controllers\PidanaController;
+use App\Http\Controllers\PosbakumController;
+use App\Http\Controllers\UmumController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,38 +19,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard', [
-        'title' => 'Dashboard'
-    ]);
-});
+Route::get('/', [DashboardController::class, 'index']);
 
-Route::get('/bagian-perdata', function () {
-    return view('perdata', [
-        'title' => 'Bagian Perdata'
-    ]);
-});
+Route::get('/bagian-perdata', [PerdataController::class, 'index']);
 
-Route::get('/bagian-pidana', function () {
-    return view('pidana', [
-        'title' => 'Bagian Pidana'
-    ]);
-});
+Route::get('/bagian-pidana', [PidanaController::class, 'index']);
 
-Route::get('/bagian-hukum', function () {
-    return view('hukum', [
-        'title' => 'Bagian Hukum'
-    ]);
-});
+Route::get('/bagian-hukum', [HukumController::class, 'index']);
 
-Route::get('/bagian-umum', function () {
-    return view('umum', [
-        'title' => 'Bagian Umum dan Keuangan'
-    ]);
-});
+Route::get('/bagian-umum', [UmumController::class, 'index']);
 
-Route::get('/posbakum', function () {
-    return view('posbakum', [
-        'title' => 'Posbakum'
-    ]);
-});
+Route::get('/posbakum', [PosbakumController::class, 'index']);
