@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://laravel.com/img/logomark.min.svg" width="50"></a>||<a href="#" target="_blank"><img src="[https://laravel.com/img/logomark.min.svg](https://www.pn-tais.go.id/wp-content/themes/mahkamahagung/images/logo.png)" width="50"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://laravel.com/img/logomark.min.svg" width="50"></a>||<a href="#" target="_blank"><img src="https://www.pn-tais.go.id/wp-content/themes/mahkamahagung/images/logo.png" width="50"></a></p>
 
 ## Tentang
 
