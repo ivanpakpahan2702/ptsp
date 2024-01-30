@@ -16,6 +16,7 @@ class CreatePosbakumsTable extends Migration
         Schema::create('posbakums', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->longText('article');
         });
     }
 

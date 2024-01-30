@@ -16,6 +16,7 @@ class CreateUmumsTable extends Migration
         Schema::create('umums', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->longText('article');
         });
     }
 

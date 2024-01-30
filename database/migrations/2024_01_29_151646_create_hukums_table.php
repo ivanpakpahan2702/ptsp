@@ -16,6 +16,7 @@ class CreateHukumsTable extends Migration
         Schema::create('hukums', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->longText('article');
         });
     }
 

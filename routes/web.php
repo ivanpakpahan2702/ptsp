@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HukumController;
-use App\Http\Controllers\PerdataController;
-use App\Http\Controllers\PidanaController;
-use App\Http\Controllers\PosbakumController;
-use App\Http\Controllers\UmumController;
+use App\Http\Controllers\User\DashboardController as UserDashboardController;
+use App\Http\Controllers\User\HukumController as UserHukumController;
+use App\Http\Controllers\User\PerdataController as UserPerdataController;
+use App\Http\Controllers\User\PidanaController as UserPidanaController;
+use App\Http\Controllers\User\PosbakumController as UserPosbakumController;
+use App\Http\Controllers\User\UmumController as UserUmumController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,14 +19,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/', [UserDashboardController::class, 'index']);
 
-Route::get('/bagian-perdata', [PerdataController::class, 'index']);
+Route::get('/bagian-perdata', [UserPerdataController::class, 'index']);
 
-Route::get('/bagian-pidana', [PidanaController::class, 'index']);
+Route::get('/bagian-pidana', [UserPidanaController::class, 'index']);
 
-Route::get('/bagian-hukum', [HukumController::class, 'index']);
+Route::get('/bagian-hukum', [UserHukumController::class, 'index']);
 
-Route::get('/bagian-umum', [UmumController::class, 'index']);
+Route::get('/bagian-umum', [UserUmumController::class, 'index']);
 
-Route::get('/posbakum', [PosbakumController::class, 'index']);
+Route::get('/posbakum', [UserPosbakumController::class, 'index']);

@@ -16,6 +16,7 @@ class CreatePerdatasTable extends Migration
         Schema::create('perdatas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->longText('article');
         });
     }
 

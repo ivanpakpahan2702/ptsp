@@ -16,6 +16,7 @@ class CreatePidanasTable extends Migration
         Schema::create('pidanas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->longText('article');
         });
     }
 
