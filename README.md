@@ -41,7 +41,7 @@ composer install
 cp .env.example .env
 ```
 
-5. Selanjutnya jalankan perintah berikut ini
+4. Selanjutnya jalankan perintah berikut ini
 
 ```shell
 php artisan key:generate
@@ -53,13 +53,7 @@ php artisan key:generate
 php artisan migrate:fresh --seed
 ```
 
-6. Install & compile node modules
-
-```shell
-npm install && npm run dev
-```
-
-7. Jalankan Project
+6. Jalankan Project
 
 Lakukan perintah berikut ini di terminal
 
