@@ -29,7 +29,7 @@ git checkout master
 git pull origin master
 ```
 
-2. Intall Paket yang dibawa oleh composer
+2. Install Paket yang dibawa oleh composer
 
 ```shell
 composer install
