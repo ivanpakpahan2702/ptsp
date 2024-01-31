@@ -89,7 +89,7 @@
 	<!-- / Layout wrapper -->
 
 	<div class="buy-now">
-		<a href="#" target="" class="btn btn-danger btn-buy-now">Chat</a>
+		<a href="/room-perdata" target="" class="btn btn-danger btn-buy-now">Chat</a>
 	</div>
 
 	<!-- Core JS -->
