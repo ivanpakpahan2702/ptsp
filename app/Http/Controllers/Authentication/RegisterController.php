@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -38,8 +39,9 @@ class RegisterController extends Controller
             ]
         );
         $validatedData['password'] = bcrypt($validatedData['password']);
-        User::create($validatedData);
-        event(new Registered($validatedData));
+        $user = User::create($validatedData);
+        event(new Registered($user));
+        Auth::login($user);
 
         return redirect('/login')->with('success', '<strong>Berhasil mendaftar!</strong> Silahkan masuk menggunakan data yang sudah didaftarkan.');
     }

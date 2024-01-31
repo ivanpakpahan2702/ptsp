@@ -7,7 +7,7 @@ use App\Models\Perdata;
 use App\Http\Requests\StorePerdataRequest;
 use App\Http\Requests\UpdatePerdataRequest;
 
-class RoomPerdataController extends Controller
+class RoomChatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class RoomPerdataController extends Controller
      */
     public function index()
     {
-        return view('user.room.perdata', [
-            'title' => 'Chat Tentnag Perdata'
+        return view('user.room.chat', [
+            'title' => 'Ruang Chat'
         ]);
     }
 
