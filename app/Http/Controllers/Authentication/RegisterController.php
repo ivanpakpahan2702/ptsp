@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Authentication;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -20,7 +20,7 @@ class RegisterController extends Controller
     public function index()
     {
         return view('authentication.register', [
-            'title' => 'Pendaftaran'
+            'title' => 'Pendaftaran',
         ]);
     }
 
@@ -39,7 +39,7 @@ class RegisterController extends Controller
                 'password' => 'required|min:6',
             ]
         );
-        $validatedData['password'] =  Hash::make($validatedData['password']);
+        $validatedData['password'] = Hash::make($validatedData['password']);
         $user = User::create($validatedData);
         event(new Registered($user));
         Auth::login($user);

@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers\Authentication;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class EmailVerifyController extends Controller
 {

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Hukum;
 use App\Http\Requests\StoreHukumRequest;
 use App\Http\Requests\UpdateHukumRequest;
+use App\Models\Hukum;
 
 class HukumController extends Controller
 {
@@ -17,7 +17,7 @@ class HukumController extends Controller
     public function index()
     {
         return view('user.hukum', [
-            'title' => 'Bagian Hukum'
+            'title' => 'Bagian Hukum',
         ]);
     }
 

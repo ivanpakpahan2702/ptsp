@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Dashboard;
 use App\Http\Requests\StoreDashboardRequest;
 use App\Http\Requests\UpdateDashboardRequest;
+use App\Models\Dashboard;
 
 class DashboardController extends Controller
 {

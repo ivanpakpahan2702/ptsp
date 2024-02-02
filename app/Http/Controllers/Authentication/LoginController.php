@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\Authentication;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -19,7 +17,7 @@ class LoginController extends Controller
     public function index()
     {
         return view('authentication.login', [
-            'title' => 'Masuk'
+            'title' => 'Masuk',
         ]);
     }
 
