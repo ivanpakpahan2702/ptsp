@@ -43,5 +43,6 @@ class RegisterController extends Controller
         $user = User::create($validatedData);
         event(new Registered($user));
         Auth::login($user);
+        return redirect('/');
     }
 }

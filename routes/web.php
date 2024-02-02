@@ -3,6 +3,8 @@
 use App\Http\Controllers\Authentication\EmailVerifyController;
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
+use App\Http\Controllers\Authentication\ResetPasswordController;
+use App\Http\Controllers\User\AccountController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\User\HukumController as UserHukumController;
 use App\Http\Controllers\User\PerdataController as UserPerdataController;
@@ -10,13 +12,7 @@ use App\Http\Controllers\User\PidanaController as UserPidanaController;
 use App\Http\Controllers\User\PosbakumController as UserPosbakumController;
 use App\Http\Controllers\User\RoomChatController;
 use App\Http\Controllers\User\UmumController as UserUmumController;
-use App\Models\User;
-use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +41,8 @@ Route::get('/bagian-umum', [UserUmumController::class, 'index']);
 
 Route::get('/posbakum', [UserPosbakumController::class, 'index']);
 
+Route::get('/account', [AccountController::class, 'index'])->middleware('auth');
+
 // User
 
 //Register, Login, and Logout
@@ -72,48 +70,13 @@ Route::get('/email/verify/{id}/{hash}', [EmailVerifyController::class, 'handle']
 // Email Verify
 
 // Forgot Password
-Route::get('/forgot-password', function () {
-    return view('authentication.forgot-password', ['title' => 'Lupa Password']);
-})->middleware('guest')->name('password.request');
 
-Route::post('/forgot-password', function (Request $request) {
-    $request->validate(['email' => 'required|email']);
+Route::get('/forgot-password', [ResetPasswordController::class, 'index'])->middleware('guest')->name('password.request');
 
-    $status = Password::sendResetLink(
-        $request->only('email')
-    );
+Route::post('/forgot-password', [ResetPasswordController::class, 'sending'])->middleware('guest')->name('password.email');
 
-    return $status === Password::RESET_LINK_SENT
-    ? back()->with(['status' => __($status)])
-    : back()->withErrors(['email' => __($status)]);
-})->middleware('guest')->name('password.email');
+Route::get('/reset-password/{token}', [ResetPasswordController::class, 'handle'])->middleware('guest')->name('password.reset');
 
-Route::get('/reset-password/{token}', function (string $token) {
-    return view('authentication.reset-password', ['token' => $token, 'email' => request()->email, 'title' => 'Setel Ulang Password']);
-})->middleware('guest')->name('password.reset');
+Route::post('/reset-password', [ResetPasswordController::class, 'update'])->middleware('guest')->name('password.update');
 
-Route::post('/reset-password', function (Request $request) {
-    $request->validate([
-        'token' => 'required',
-        'email' => 'required|email',
-        'password' => 'required|min:6',
-    ]);
-
-    $status = Password::reset(
-        $request->only('email', 'password', 'token'),
-        function (User $user, string $password) {
-            $user->forceFill([
-                'password' => Hash::make($password),
-            ])->setRememberToken(Str::random(60));
-
-            $user->save();
-
-            event(new PasswordReset($user));
-        }
-    );
-
-    return $status === Password::PASSWORD_RESET
-    ? redirect()->route('login')->with('status', __($status))
-    : back()->withErrors(['email' => [__($status)]]);
-})->middleware('guest')->name('password.update');
 // Forgot Password

@@ -1,7 +1,7 @@
 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
   id="layout-navbar">
   <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
-    <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+    <a class="nav-item nav-link px-0 me-xl-4" href="#">
       <i class="bx bx-menu bx-sm"></i>
     </a>
   </div>
@@ -18,9 +18,9 @@
       @auth
         <!-- Logged User -->
         <li class="nav-item navbar-dropdown dropdown-user dropdown">
-          <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+          <a class="nav-link dropdown-toggle hide-arrow" href="#" data-bs-toggle="dropdown">
             <div class="avatar avatar-online">
-              <img src="assets/sneat/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+              <img src="storage/avatars/{{ $user->avatar }}" alt class="w-px-40 h-auto rounded-circle" />
             </div>
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
@@ -29,12 +29,12 @@
                 <div class="d-flex">
                   <div class="flex-shrink-0 me-3">
                     <div class="avatar avatar-online">
-                      <img src="assets/sneat/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="storage/avatars/{{ $user->avatar }}" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </div>
                   <div class="flex-grow-1">
-                    <span class="fw-medium d-block">John Doe</span>
-                    <small class="text-muted">Admin</small>
+                    <span class="fw-medium d-block">{{ $user->name }}</span>
+                    <small class="text-muted">Pengguna</small>
                   </div>
                 </div>
               </a>
@@ -43,65 +43,58 @@
               <div class="dropdown-divider"></div>
             </li>
             <li>
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item {{ $title === 'Data & Akun' ? 'active' : '' }}" href="/account">
                 <i class="bx bx-user me-2"></i>
                 <span class="align-middle">Akun</span>
               </a>
             </li>
-            <li>
-              <a class="dropdown-item" href="#">
-                <i class="bx bx-cog me-2"></i>
-                <span class="align-middle">Pengaturan</span>
-              </a>
-            </li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
-            <li>
-              <a class="dropdown-item" href="/logout">
-                <i class="bx bx-power-off me-2"></i>
-                <span class="align-middle">Keluar</span>
-              </a>
-            </li>
-          </ul>
+            <div class="dropdown-divider"></div>
         </li>
-      @else
-        <!-- Guest User -->
-        <li class="nav-item navbar-dropdown dropdown-user dropdown">
-          <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-            <div class="avatar avatar-online">
-              <img src="assets/images/avatars/guest.png" alt class="w-px-40 h-auto rounded-circle" />
-            </div>
+        <li>
+          <a class="dropdown-item" href="/logout">
+            <i class="bx bx-power-off me-2"></i>
+            <span class="align-middle">Keluar</span>
           </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li>
-              <a class="dropdown-item" href="#">
-                <div class="d-flex">
-                  <div class="flex-shrink-0 me-3">
-                    <div class="avatar avatar-online">
-                      <img src="assets/images/avatars/guest.png" alt class="w-px-40 h-auto rounded-circle" />
-                    </div>
-                  </div>
-                  <div class="flex-grow-1">
-                    <span class="fw-medium d-block">Pengunjung</span>
-                    <small class="text-muted">Pengunjung</small>
+        </li>
+      </ul>
+      </li>
+    @else
+      <!-- Guest User -->
+      <li class="nav-item navbar-dropdown dropdown-user dropdown">
+        <a class="nav-link dropdown-toggle hide-arrow" href="#" data-bs-toggle="dropdown">
+          <div class="avatar avatar-online">
+            <img src="assets/images/avatars/guest.png" alt class="w-px-40 h-auto rounded-circle" />
+          </div>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li>
+            <a class="dropdown-item" href="#">
+              <div class="d-flex">
+                <div class="flex-shrink-0 me-3">
+                  <div class="avatar avatar-online">
+                    <img src="assets/images/avatars/guest.png" alt class="w-px-40 h-auto rounded-circle" />
                   </div>
                 </div>
-              </a>
-            </li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
-            <li>
-              <a class="dropdown-item" href="/login">
-                <i class="fa-solid fa-right-to-bracket me-2"></i>
-                <span class="align-middle">Masuk</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <!-- Guest User -->
-      @endauth
+                <div class="flex-grow-1">
+                  <span class="fw-medium d-block">Pengunjung</span>
+                  <small class="text-muted">Pengunjung</small>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <div class="dropdown-divider"></div>
+          </li>
+          <li>
+            <a class="dropdown-item" href="/login">
+              <i class="fa-solid fa-right-to-bracket me-2"></i>
+              <span class="align-middle">Masuk</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- Guest User -->
+    @endauth
     </ul>
   </div>
 </nav>

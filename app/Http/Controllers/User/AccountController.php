@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreDashboardRequest;
-use App\Http\Requests\UpdateDashboardRequest;
-use App\Models\Dashboard;
+use App\Http\Requests\StoreHukumRequest;
+use App\Http\Requests\UpdateHukumRequest;
+use App\Models\Hukum;
 use Illuminate\Support\Facades\Auth;
 
-class DashboardController extends Controller
+class AccountController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +18,8 @@ class DashboardController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('user.dashboard', [
-            'title' => 'Dashboard',
-            'dashboard' => Dashboard::all(),
+        return view('user.account', [
+            'title' => 'Data & Akun',
             'user' => $user,
         ]);
     }
@@ -38,10 +37,10 @@ class DashboardController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreDashboardRequest  $request
+     * @param  \App\Http\Requests\StoreHukumRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreDashboardRequest $request)
+    public function store(StoreHukumRequest $request)
     {
         //
     }
@@ -49,10 +48,10 @@ class DashboardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Dashboard  $dashboard
+     * @param  \App\Models\Hukum  $hukum
      * @return \Illuminate\Http\Response
      */
-    public function show(Dashboard $dashboard)
+    public function show(Hukum $hukum)
     {
         //
     }
@@ -60,10 +59,10 @@ class DashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Dashboard  $dashboard
+     * @param  \App\Models\Hukum  $hukum
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dashboard $dashboard)
+    public function edit(Hukum $hukum)
     {
         //
     }
@@ -71,11 +70,11 @@ class DashboardController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateDashboardRequest  $request
-     * @param  \App\Models\Dashboard  $dashboard
+     * @param  \App\Http\Requests\UpdateHukumRequest  $request
+     * @param  \App\Models\Hukum  $hukum
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDashboardRequest $request, Dashboard $dashboard)
+    public function update(UpdateHukumRequest $request, Hukum $hukum)
     {
         //
     }
@@ -83,10 +82,10 @@ class DashboardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Dashboard  $dashboard
+     * @param  \App\Models\Hukum  $hukum
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dashboard $dashboard)
+    public function destroy(Hukum $hukum)
     {
         //
     }
