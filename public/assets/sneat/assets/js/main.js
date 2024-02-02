@@ -129,7 +129,7 @@ function appendZero(value) {
 
 function theTime() {
     var d = new Date();
-    document.getElementById("time").innerHTML = d.toLocaleTimeString("en-US");
+    document.getElementById("time").innerHTML = d.toLocaleTimeString([], { hour12: false});
 }
 
 if (day < 10) {

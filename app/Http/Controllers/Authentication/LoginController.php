@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Authentication;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -16,19 +18,31 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view('login', [
+        return view('authentication.login', [
             'title' => 'Masuk'
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreHukumRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function handle(Request $request)
     {
-        //
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials, $remember = $request['remember'])) {
+            $request->session()->regenerate();
+            return redirect()->intended('/');
+        }
+
+        return back()->with('error', 'Data yang dimasukkan tidak terdaftar');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login');
     }
 }

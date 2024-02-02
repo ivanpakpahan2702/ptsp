@@ -28,12 +28,13 @@
 	<!-- Vendors CSS -->
 	<link rel="stylesheet" href="assets/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 	<link rel="stylesheet" href="assets/sneat/assets/vendor/libs/apex-charts/apex-charts.css" />
+	<link rel="stylesheet" href="assets/sneat/assets/vendor/libs/spinkit/spinkit.css" />
 
 	{{-- Font Awesome --}}
-	<link rel="stylesheet" href="assets/fontawesome@6.3.0/css/all.min.css">
+	<link rel="stylesheet" href="assets/fontawesome@6.3.0/css/all.min.css"/>
 
 	<!-- Page CSS -->
-
+	<link rel="stylesheet" href={{ URL::asset("assets/w3schools/w3.css") }}>
 	<!-- Helpers -->
 	<script src="assets/sneat/assets/vendor/js/helpers.js"></script>
 	<!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
@@ -43,7 +44,7 @@
 
 <body>
 	<!-- Layout wrapper -->
-	<div class="layout-wrapper layout-content-navbar">
+	<div class="layout-wrapper layout-content-navbar w3-animate-left">
 		<div class="layout-container">
 			<!-- Menu -->
 			@include('user.partials.navbar')
@@ -89,7 +90,7 @@
 	<!-- / Layout wrapper -->
 
 	<div class="buy-now">
-		<a href="/room-perdata" target="" class="btn btn-danger btn-buy-now">Chat</a>
+		<a href="/room-chat" target="" class="btn btn-danger btn-buy-now">Ruang Chat</a>
 	</div>
 
 	<!-- Core JS -->
