@@ -24,6 +24,15 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->boolean('is_admin')->default(false);
             $table->rememberToken();
+            $table->string('nik')->nullable();
+            $table->string('tempat_lahir')->nullable();
+            $table->date('tanggal_lahir')->nullable();
+            $table->string('agama')->nullable();
+            $table->string('jenis_kelamin')->nullable();
+            $table->text('alamat')->nullable();
+            $table->string('kode_pos')->nullable();
+            $table->text('no_telpon')->nullable();
+            $table->string('kewarganegaraan')->nullable();
             $table->timestamps();
         });
     }

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDashboardRequest;
 use App\Http\Requests\UpdateDashboardRequest;
 use App\Models\Dashboard;
-use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -17,11 +16,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
         return view('user.dashboard', [
             'title' => 'Dashboard',
             'dashboard' => Dashboard::all(),
-            'user' => $user,
         ]);
     }
 

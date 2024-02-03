@@ -20,7 +20,7 @@
         <li class="nav-item navbar-dropdown dropdown-user dropdown">
           <a class="nav-link dropdown-toggle hide-arrow" href="#" data-bs-toggle="dropdown">
             <div class="avatar avatar-online">
-              <img src="storage/avatars/{{ $user->avatar }}" alt class="w-px-40 h-auto rounded-circle" />
+              <img src="storage/avatars/{{ auth()->user()->avatar }}" alt class="w-px-40 h-auto rounded-circle" />
             </div>
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
@@ -29,11 +29,11 @@
                 <div class="d-flex">
                   <div class="flex-shrink-0 me-3">
                     <div class="avatar avatar-online">
-                      <img src="storage/avatars/{{ $user->avatar }}" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="storage/avatars/{{ auth()->user()->avatar }}" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </div>
                   <div class="flex-grow-1">
-                    <span class="fw-medium d-block">{{ $user->name }}</span>
+                    <span class="fw-medium d-block">{{ auth()->user()->name }}</span>
                     <small class="text-muted">Pengguna</small>
                   </div>
                 </div>

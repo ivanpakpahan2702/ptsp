@@ -41,11 +41,4 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * Get the phone associated with the user.
-     */
-    public function userdata()
-    {
-        return $this->hasOne(UserData::class);
-    }
 }

@@ -20,7 +20,7 @@
       </div>
       <div class="toast-body">
         Halo @auth
-          {{ $user->name }}
+          {{ auth()->user()->name }}
         @else
           Pengunjung
         @endauth

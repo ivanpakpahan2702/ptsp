@@ -33,7 +33,6 @@
   <!-- Vendors CSS -->
   <link rel="stylesheet" href="assets/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
   <link rel="stylesheet" href="assets/sneat/assets/vendor/libs/apex-charts/apex-charts.css" />
-  <link rel="stylesheet" href="assets/sneat/assets/vendor/libs/spinkit/spinkit.css" />
 
   {{-- Font Awesome --}}
   <link rel="stylesheet" href="assets/fontawesome@6.3.0/css/all.min.css" />
@@ -45,11 +44,51 @@
   <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
   <script src="assets/sneat/assets/js/config.js"></script>
+
+  <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+  <style>
+    #loading {
+      position: fixed;
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      background-color: whitesmoke;
+      z-index: 9999999999;
+    }
+
+    #loading .spinner-grow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 99999999999;
+    }
+
+    #loading .visually-hidden {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 99999999999;
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Loader -->
+  <div id="loading" class="">
+    <div class="spinner-grow text-secondary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <!-- /loader -->
   <!-- Layout wrapper -->
-  <div class="layout-wrapper layout-content-navbar w3-animate-left">
+  <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
       <!-- Menu -->
       @include('user.partials.navbar')
@@ -80,6 +119,7 @@
           </div>
           <!-- / Content -->
           <!-- Footer -->
+
           @include('user.partials.footer')
           <!-- Footer -->
           <div class="content-backdrop fade"></div>
@@ -92,11 +132,8 @@
     <!-- Overlay -->
     <div class="layout-overlay layout-menu-toggle"></div>
   </div>
-  <!-- / Layout wrapper -->
 
-  <div class="buy-now">
-    <a href="/room-chat" target="" class="btn btn-danger btn-buy-now">Ruang Chat</a>
-  </div>
+  <!-- / Layout wrapper -->
 
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
@@ -118,7 +155,6 @@
   <!-- Page JS -->
   <script src="assets/sneat/assets/js/dashboards-analytics.js"></script>
   <script src="assets/sneat/assets/js/extended-ui-perfect-scrollbar.js"></script>
-  <script src="assets/sneat/assets/js/form-basic-input.js"></script>
   <script src="assets/sneat/assets/js/pages-account-settings-account.js"></script>
   <script src="assets/sneat/assets/js/ui-modals.js"></script>
   <script src="assets/sneat/assets/js/ui-popover.js"></script>
@@ -127,6 +163,11 @@
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script>
+    $(window).on('load', function() {
+      $('#loading').fadeOut(1000);
+    })
+  </script>
 </body>
 
 </html>

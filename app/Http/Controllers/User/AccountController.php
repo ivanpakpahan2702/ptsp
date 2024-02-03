@@ -3,18 +3,13 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreHukumRequest;
-use App\Http\Requests\UpdateHukumRequest;
-use App\Models\Hukum;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AccountController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $user = Auth::user();
@@ -24,68 +19,42 @@ class AccountController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreHukumRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreHukumRequest $request)
+    public function store()
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Hukum  $hukum
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Hukum $hukum)
+    public function show()
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Hukum  $hukum
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Hukum $hukum)
+    public function edit()
     {
-        //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateHukumRequest  $request
-     * @param  \App\Models\Hukum  $hukum
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateHukumRequest $request, Hukum $hukum)
+    public function update(Request $request, $user_id)
     {
-        //
+        $user_now = Auth::user();
+        if (($user_now->role == 'master-admin')) {
+            dd('Gas Pak Bos');
+        } elseif ((($user_now->id) != $user_id)) {
+            abort(403);
+        } else {
+            $affected = DB::table('users')
+                ->where('id', $user_id)
+                ->update(
+                    ['email_verified_at' => null, 'name' => 'Ivan Pakpahan Van Der Sar', 'password' => $user_now->password]
+                );
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Hukum  $hukum
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Hukum $hukum)
+    public function destroy()
     {
         //
     }

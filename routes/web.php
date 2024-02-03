@@ -41,8 +41,6 @@ Route::get('/bagian-umum', [UserUmumController::class, 'index']);
 
 Route::get('/posbakum', [UserPosbakumController::class, 'index']);
 
-Route::get('/account', [AccountController::class, 'index'])->middleware('auth');
-
 // User
 
 //Register, Login, and Logout
@@ -80,3 +78,11 @@ Route::get('/reset-password/{token}', [ResetPasswordController::class, 'handle']
 Route::post('/reset-password', [ResetPasswordController::class, 'update'])->middleware('guest')->name('password.update');
 
 // Forgot Password
+
+// Account Control
+
+Route::get('/account', [AccountController::class, 'index'])->middleware('auth');
+
+Route::put('/update-profil/{user}', [AccountController::class, 'update'])->middleware('auth')->name('update-profil');
+
+// Account Control
