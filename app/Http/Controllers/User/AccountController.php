@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AccountController extends Controller
 {
@@ -41,21 +43,90 @@ class AccountController extends Controller
     public function update(Request $request, $user_id)
     {
         $user_now = Auth::user();
+        $user = User::find($user_id);
+
         if (($user_now->role == 'master-admin')) {
-            dd('Gas Pak Bos');
+            dd('Continue');
         } elseif ((($user_now->id) != $user_id)) {
             abort(403);
         } else {
-            $affected = DB::table('users')
+            $rules = [
+                'name' => 'required|max:255',
+                'avatar' => 'image|file|max:1024',
+                'tempat_lahir' => '',
+                'tanggal_lahir' => '',
+                'agama' => '',
+                'jenis_kelamin' => '',
+                'alamat' => '',
+                'kode_pos' => '',
+                'no_telpon' => '',
+                'kewarganegaraan' => '',
+            ];
+
+            if ($request->email != $user->email) {
+                $rules['email'] = 'required|unique:users|email:dns';
+            }
+
+            if ($request->nik != $user->nik) {
+                $rules['nik'] = 'required';
+            }
+
+            $validated_data = $request->validate($rules);
+
+            if ($request->email != $user->email) {
+                $validated_data['email_verified_at'] = null;
+            }
+
+            if ($request->file('avatar')) {
+                $validated_data['avatar'] = $request->file('avatar')->store('avatars');
+            }
+
+            if (!($request->file('avatar')) && ($user->avatar != null)) {
+                $validated_data['avatar'] = null;
+            }
+
+            DB::table('users')
                 ->where('id', $user_id)
-                ->update(
-                    ['email_verified_at' => null, 'name' => 'Ivan Pakpahan Van Der Sar', 'password' => $user_now->password]
-                );
+                ->update($validated_data);
+
+            return redirect('/account')->with('success-profil', 'Berhasil update akun!');
+        }
+
+    }
+
+    public function update_password(Request $request, $user_id)
+    {
+        $user_now = Auth::user();
+
+        if (($user_now->role == 'master-admin')) {
+            dd('Continue');
+        } elseif ((($user_now->id) != $user_id)) {
+            abort(403);
+        } else {
+            $rules = [
+                'password' => 'required|min:6',
+            ];
+            $validated_data = $request->validate($rules);
+            $validated_data['password'] = Hash::make($validated_data['password']);
+            DB::table('users')
+                ->where('id', $user_id)
+                ->update($validated_data);
+
+            return redirect('/account')->with('success-pass', 'Berhasil update password!');
         }
     }
 
-    public function destroy()
+    public function destroy(User $user)
     {
-        //
+        $user_now = Auth::user();
+
+        if (($user_now->role == 'master-admin')) {
+            dd('Continue');
+        } elseif ((($user_now->id) != $user->id)) {
+            abort(403);
+        } else {
+            User::destroy($user->id);
+            return redirect('/logout');
+        }
     }
 }

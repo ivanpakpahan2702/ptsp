@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use \App\Models\User;
 
 class DatabaseSeeder extends Seeder
@@ -17,14 +18,12 @@ class DatabaseSeeder extends Seeder
         User::create([
             "name" => "Ivan Pakpahan",
             "email" => "ivanpakpahanchrst@gmail.com",
-            "password" => '$10$u1jNkhBXsMqHDtDMomU5p.zBBtEuqwVtHoM149LMjnwZs1are3JHC',
-            "role" => 'user',
+            "password" => Hash::make('123456'),
+            "role" => 'Pengguna',
             "agama" => 'Kristen Protestan',
-            "avatar" => 'ivan.png',
             "jenis_kelamin" => 'p',
             "nik" => "1002021202000002",
             "kode_pos" => "32675",
         ]);
-        User::factory(10)->create();
     }
 }

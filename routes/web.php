@@ -85,4 +85,7 @@ Route::get('/account', [AccountController::class, 'index'])->middleware('auth');
 
 Route::put('/update-profil/{user}', [AccountController::class, 'update'])->middleware('auth')->name('update-profil');
 
+Route::put('/update-password/{user}', [AccountController::class, 'update_password'])->middleware('auth')->name('update-pass');
+
+Route::delete('/delete-profil/{user}', [AccountController::class, 'destroy'])->middleware('auth')->name('delete-profil');
 // Account Control

@@ -1,23 +1,45 @@
 @extends('user.layouts.main')
 @section('content')
   <main class="content">
-    <form id="formAccountSettings" method='POST' action="{{ url('/update-profil/' . $user->id) }}">
+    <form id="formAccountSettings" method='POST' action="{{ url('/update-profil/' . $user->id) }}"
+      enctype="multipart/form-data">
       @method('PUT')
       @csrf
       <div class="card mb-4">
         <h5 class="card-header">Detail Data dan Akun</h5>
+        @if (session()->has('success-profil'))
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Berhasil Ubah Profil!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        @endif
+        @if (session()->has('success-pass'))
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Berhasil Ubah Password!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        @endif
         <!-- Account -->
         <div class="card-body mb-3">
+          @error('avatar')
+            <div class="invalid-feedback d-block mb-2">
+              {{ $message }}
+            </div>
+          @enderror
           <div class="d-flex align-items-start align-items-sm-center gap-4">
-            <img src="{{ URL::asset('Storage/Avatars/' . $user->avatar . '') }}" alt="user-avatar" class="d-block rounded"
-              height="100" width="100" id="uploadedAvatar" />
+            <img
+              src="{{ $user->avatar != null ? URL::asset('Storage/' . $user->avatar . '') : URL::asset('assets/images/avatars/no_image.jpg') }}"
+              alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
             <div class="button-wrapper">
               <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
                 <span class="d-none d-sm-block">Upload foto baru</span>
                 <i class="bx bx-upload d-block d-sm-none"></i>
-                <input type="file" id="upload" name="avatar" class="account-file-input" hidden
-                  accept="image/png, image/jpeg" onchange="readUrl(this)" />
+                <input type="file" id="upload" name="avatar"
+                  class="account-file-input @error('avatar') is-invalid @enderror" hidden accept="image/png, image/jpeg"
+                  onchange="readUrl(this)" />
               </label>
+
+
               <button id="resetButton" type="button" class="btn btn-outline-secondary mb-4">
                 <i class="bx bx-reset d-block d-sm-none"></i>
                 <span class="d-none d-sm-block">Hapus</span>
@@ -31,18 +53,33 @@
           <div class="row">
             <div class="mb-3 col-md-6">
               <label for="name" class="form-label">Nama Lengkap</label>
-              <input class="form-control" type="text" id="name" name="name"
+              <input class="form-control @error('name') is-invalid @enderror" type="text" id="name" name="name"
                 value="{{ old('name') === null ? $user->name : old('name') }}" autofocus />
+              @error('name')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+              @enderror
             </div>
             <div class="mb-3 col-md-6">
               <label for="email" class="form-label">E-mail</label>
-              <input class="form-control" type="text" id="email" name="email"
-                value="{{ old('email') === null ? $user->email : old('email') }}" />
+              <input class="form-control @error('email') is-invalid @enderror" type="text" id="email"
+                name="email" value="{{ old('email') === null ? $user->email : old('email') }}" />
+              @error('email')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+              @enderror
             </div>
             <div class="mb-3 col-md-6">
               <label for="nik" class="form-label">NIK</label>
-              <input class="form-control" type="text" id="nik" name="nik"
+              <input class="form-control @error('nik') is-invalid @enderror" type="text" id="nik" name="nik"
                 value="{{ old('nik') === null ? $user->nik : old('nik') }}" placeholder="Nomor Induk Kependudukan" />
+              @error('nik')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+              @enderror
             </div>
             <div class="mb-3 col-md-6">
             </div>
@@ -63,7 +100,8 @@
                 <option value="Islam" {{ $user->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
                 <option value="Kristen Protestan" {{ $user->agama == 'Kristen Protestan' ? 'selected' : '' }}>Kristen
                   Protestan</option>
-                <option value="Kristen Katolik" {{ $user->agama == 'Kristen Katolik' ? 'selected' : '' }}>Kristen Katolik
+                <option value="Kristen Katolik" {{ $user->agama == 'Kristen Katolik' ? 'selected' : '' }}>Kristen
+                  Katolik
                 </option>
                 <option value="Hindu" {{ $user->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
                 <option value="Buddha" {{ $user->agama == 'Buddha' ? 'selected' : '' }}>Buddha</option>
@@ -72,8 +110,8 @@
             </div>
             <div class="mb-3 col-md-6">
               <label for="number" class="form-label">No HP</label>
-              <input type="text" class="form-control" id="number" name="no_hp" placeholder="Nomor Hp Aktif"
-                value="{{ old('no_hp') === null ? $user->no_hp : old('no_hp') }}" />
+              <input type="text" class="form-control" id="number" name="no_telpon" placeholder="Nomor Hp Aktif"
+                value="{{ old('no_telpon') === null ? $user->no_telpon : old('no_telpon') }}" />
             </div>
             <div class="mb-3 col-md-6">
               <label for="alamat" class="form-label">Alamat</label>
@@ -108,8 +146,9 @@
     </form>
     <hr class="my-3" />
     <div class="card-body">
-      <form action="" method="">
+      <form action="{{ url('/update-password/' . $user->id) }}" method="post">
         @csrf
+        @method('PUT')
         <div class="row">
           <div class="mb-3 col-md-6 form-password-toggle">
             <div class="d-flex justify-content-between">
@@ -143,9 +182,12 @@
             <p class="mb-0">Saat anda menghapus akun anda, semua data yang telah anda daftarkan akan terhapus.</p>
           </div>
         </div>
-        <form id="formAccountDeactivation" onsubmit="return false">
+        <form id="formAccountDeactivation" action="{{ url('/delete-profil/' . $user->id) }}" method="POST">
+          @csrf
+          @method('delete')
           <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" name="accountActivation" id="accountActivation" />
+            <input class="form-check-input" type="checkbox" name="accountActivation" id="accountActivation"
+              required />
             <label class="form-check-label" for="accountActivation">Saya mengkonfirmasi penghapusan akun saya</label>
           </div>
           <button type="submit" class="btn btn-danger deactivate-account">Hapus Akun</button>
@@ -172,7 +214,7 @@
     $('#resetButton').on({
       'click': function() {
         $('#uploadedAvatar').attr('src', '{{ URL::asset('assets/images/avatars/no_image.jpg') }}');
-        $('#upload').val('');
+        $('#upload').val(null);
       }
     });
   </script>

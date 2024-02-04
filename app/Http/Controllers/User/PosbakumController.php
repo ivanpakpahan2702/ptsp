@@ -4,16 +4,10 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Posbakum;
-use App\Http\Requests\StorePosbakumRequest;
-use App\Http\Requests\UpdatePosbakumRequest;
 
 class PosbakumController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         return view('user.posbakum', [
@@ -21,68 +15,33 @@ class PosbakumController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorePosbakumRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StorePosbakumRequest $request)
+  
+    public function store()
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Posbakum  $posbakum
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Posbakum $posbakum)
+    public function show()
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Posbakum  $posbakum
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Posbakum $posbakum)
+    public function edit()
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePosbakumRequest  $request
-     * @param  \App\Models\Posbakum  $posbakum
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatePosbakumRequest $request, Posbakum $posbakum)
+    public function update()
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Posbakum  $posbakum
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Posbakum $posbakum)
+    public function destroy()
     {
         //
     }
