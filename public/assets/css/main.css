@@ -1,0 +1,65 @@
+#loading {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: whitesmoke;
+    z-index: 9999999999;
+}
+
+#loading .spinner-grow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 99999999999;
+}
+
+#loading .visually-hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999999999;
+}
+
+.myscrollbar {
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(13deg, #f9d4ff 14%, #c7ceff 64%);
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(13deg, #c7ceff 14%, #f9d4ff 64%);
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: inset 7px 10px 12px #f0f0f0;
+    }
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient(13deg, #f9d4ff 14%, #c7ceff 64%);
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(13deg, #c7ceff 14%, #f9d4ff 64%);
+}
+
+body::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: inset 7px 10px 12px #f0f0f0;
+}

@@ -12,6 +12,7 @@ use App\Http\Controllers\User\PidanaController as UserPidanaController;
 use App\Http\Controllers\User\PosbakumController as UserPosbakumController;
 use App\Http\Controllers\User\RoomChatController;
 use App\Http\Controllers\User\UmumController as UserUmumController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -89,3 +90,27 @@ Route::put('/update-password/{user}', [AccountController::class, 'update_passwor
 
 Route::delete('/delete-profil/{user}', [AccountController::class, 'destroy'])->middleware('auth')->name('delete-profil');
 // Account Control
+
+// User-Admin (Perdata-Pidana-Hukum-Umum-Posbakum)
+
+Route::put('/update-dashboard/{dashboard_id}', [UserDashboardController::class, 'update'])->middleware('auth');
+
+Route::put('/update-perdata/{perdata_id}', [UserPerdataController::class, 'update'])->middleware('auth');
+
+Route::put('/update-pidana/{pidana_id}', [UserPidanaController::class, 'update'])->middleware('auth');
+
+Route::put('/update-hukum/{hukum_id}', [UserHukumController::class, 'update'])->middleware('auth');
+
+Route::put('/update-umum/{umum_id}', [UserUmumController::class, 'update'])->middleware('auth');
+
+Route::put('/update-posbakum/{posbakum_id}', [UserPosbakumController::class, 'update'])->middleware('auth');
+
+// User-Admin (Perdata-Pidana-Hukum-Umum-Posbakum)
+
+// Clear Cache
+Route::get('/clear-cache', function () {
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('config:cache');
+    return 'DONE'; //Return anything
+});
+// Clear Cache

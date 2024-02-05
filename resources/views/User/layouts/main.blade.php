@@ -39,6 +39,7 @@
 
   <!-- Page CSS -->
   <link rel="stylesheet" href={{ URL::asset('assets/w3schools/w3.css') }}>
+  <link rel="stylesheet" href={{ URL::asset('assets/css/main.css') }}>
   <!-- Helpers -->
   <script src="assets/sneat/assets/vendor/js/helpers.js"></script>
   <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
@@ -60,34 +61,9 @@
   <!-- Sweet Alert -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <style>
-    #loading {
-      position: fixed;
-      display: block;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      background-color: whitesmoke;
-      z-index: 9999999999;
-    }
-
-    #loading .spinner-grow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: 99999999999;
-    }
-
-    #loading .visually-hidden {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 99999999999;
-    }
-  </style>
 </head>
 
-<body>
+<body class="myscrollbar">
   <!-- Loader -->
   <div id="loading" class="">
     <div class="spinner-grow text-secondary" role="status">
