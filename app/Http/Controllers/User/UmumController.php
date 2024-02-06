@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class UmumController extends Controller
 {
- 
+
     public function index()
     {
         return view('user.umum', [
@@ -61,9 +61,14 @@ class UmumController extends Controller
             }
         }
         $article = $dom->saveHTML();
-        Umum::create([
-            'article' => $article,
-        ]);
+        Umum::updateOrCreate(
+            [
+                'id' => $umum_id,
+            ],
+            [
+                'article' => $article,
+            ]
+        );
         return redirect('/bagian-umum')->with('success-umum', 'Berhasil Ubah Tampilan Umum');
     }
 

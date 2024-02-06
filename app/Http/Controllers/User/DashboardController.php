@@ -61,9 +61,14 @@ class DashboardController extends Controller
             }
         }
         $article = $dom->saveHTML();
-        Dashboard::create([
-            'article' => $article,
-        ]);
+        Dashboard::updateOrCreate(
+            [
+                'id' => $dashboard_id,
+            ],
+            [
+                'article' => $article,
+            ]
+        );
         return redirect('/')->with('success-dashboard', 'Berhasil Ubah Tampilan Dashboard');
     }
 

@@ -61,9 +61,14 @@ class PidanaController extends Controller
             }
         }
         $article = $dom->saveHTML();
-        Pidana::create([
-            'article' => $article,
-        ]);
+        Pidana::updateOrCreate(
+            [
+                'id' => $pidana_id,
+            ],
+            [
+                'article' => $article,
+            ]
+        );
         return redirect('/bagian-pidana')->with('success-pidana', 'Berhasil Ubah Tampilan Pidana');
     }
 

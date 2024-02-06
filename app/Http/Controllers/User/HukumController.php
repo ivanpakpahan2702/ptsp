@@ -60,9 +60,14 @@ class HukumController extends Controller
             }
         }
         $article = $dom->saveHTML();
-        Hukum::create([
-            'article' => $article,
-        ]);
+        Hukum::updateOrCreate(
+            [
+                'id' => $hukum_id,
+            ],
+            [
+                'article' => $article,
+            ]
+        );
         return redirect('/bagian-hukum')->with('success-hukum', 'Berhasil Ubah Tampilan Hukum');
     }
 

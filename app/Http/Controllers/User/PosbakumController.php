@@ -61,9 +61,14 @@ class PosbakumController extends Controller
             }
         }
         $article = $dom->saveHTML();
-        Posbakum::create([
-            'article' => $article,
-        ]);
+        Posbakum::updateOrCreate(
+            [
+                'id' => $posbakum_id,
+            ],
+            [
+                'article' => $article,
+            ]
+        );
         return redirect('/posbakum')->with('success-posbakum', 'Berhasil Ubah Tampilan Posbakum');
     }
 

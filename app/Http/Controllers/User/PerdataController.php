@@ -61,9 +61,14 @@ class PerdataController extends Controller
             }
         }
         $article = $dom->saveHTML();
-        Perdata::create([
-            'article' => $article,
-        ]);
+        Perdata::updateOrCreate(
+            [
+                'id' => $perdata_id,
+            ],
+            [
+                'article' => $article,
+            ]
+        );
         return redirect('/bagian-perdata')->with('success-perdata', 'Berhasil Ubah Tampilan Perdata');
     }
 
