@@ -1,6 +1,6 @@
 {{-- user info and avatar --}}
 <div class="avatar av-l chatify-d-flex">
-  <img src="assets/images/logos/icons8-law-96.png" alt="">
+  {{-- <img src="assets/images/logos/icons8-law-96.png" alt=""> --}}
 </div>
 <p class="info-name">{{ config('chatify.name') }}</p>
 <div class="messenger-infoView-btns">

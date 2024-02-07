@@ -285,13 +285,11 @@ class MessagesController extends Controller
         if ($user_now->role == 'Pengguna') {
             $records = User::where('id', '!=', Auth::user()->id)
                 ->where('role', '!=', "Pengguna")
-                ->where('name', 'LIKE', "%{$input}%")
-                ->orWhere('role', 'LIKE', "%{$input}%")
+                ->where('role', 'LIKE', "%{$input}%")
                 ->paginate($request->per_page ?? $this->perPage);
         } else {
             $records = User::where('id', '!=', Auth::user()->id)
-                ->where('name', 'LIKE', "%{$input}%")
-                ->orWhere('role', 'LIKE', "%{$input}%")
+                ->where('role', 'LIKE', "%{$input}%")
                 ->paginate($request->per_page ?? $this->perPage);
         }
         foreach ($records->items() as $index => $record) {
