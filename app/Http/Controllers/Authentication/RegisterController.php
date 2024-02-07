@@ -40,9 +40,10 @@ class RegisterController extends Controller
             ]
         );
         $validatedData['password'] = Hash::make($validatedData['password']);
+        $validatedData['dark_mode'] = '1';
         $user = User::create($validatedData);
         event(new Registered($user));
         Auth::login($user);
-        return redirect('/')->with('Success-Register','Silahkan Cek Surel Email Anda, Untuk Lakukan Aktivasi');
+        return redirect('/')->with('Success-Register', 'Silahkan Cek Surel Email Anda, Untuk Lakukan Aktivasi');
     }
 }
