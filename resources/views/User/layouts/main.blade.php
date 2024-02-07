@@ -60,6 +60,11 @@
 
   <!-- Sweet Alert -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    .swal2-container {
+      z-index: 999999 !important;
+    }
+  </style>
 
 </head>
 

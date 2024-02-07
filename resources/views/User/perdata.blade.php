@@ -13,10 +13,16 @@
           </button>
           <hr class="my-3" />
           @if (session()->has('success-perdata'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              <strong>Berhasil Edit Tampilan Perdata</strong>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+            <script>
+              const sweetPerdata = () => {
+                Swal.fire({
+                  title: "Berhasil!",
+                  text: "Tampilan Bagian Perdata Diubah",
+                  icon: "success"
+                });
+              }
+              const show_alert = setTimeout(sweetPerdata, 2000);
+            </script>
           @endif
           <form action="/update-perdata/{{ $perdata->first() == null ? '0' : $perdata->last()->id }}" method="POST">
             @csrf
@@ -42,7 +48,7 @@
           </form>
           <script>
             $('#Perdata_article').summernote({
-              placeholder: 'Tampilan untuk bagian perdata',
+              placeholder: 'Tampilan untuk bagian perdata, Tekan Shift+Enter Untuk Paragraf Baru Yang Tidak Jauh',
               tabsize: 2,
               height: 420,
               toolbar: [

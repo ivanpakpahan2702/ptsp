@@ -8,16 +8,28 @@
       <div class="card mb-4">
         <h5 class="card-header">Detail Data dan Akun</h5>
         @if (session()->has('success-profil'))
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Berhasil Ubah Profil!</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
+          <script>
+            const sweetProfil = () => {
+              Swal.fire({
+                title: "Berhasil!",
+                text: "Berhasil Ubah Profil",
+                icon: "success"
+              });
+            }
+            const show_alert = setTimeout(sweetProfil, 2000);
+          </script>
         @endif
         @if (session()->has('success-pass'))
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Berhasil Ubah Password!</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
+          <script>
+            const sweetPassword = () => {
+              Swal.fire({
+                title: "Berhasil!",
+                text: "Password Telah Diubah",
+                icon: "success"
+              });
+            }
+            const show_alert = setTimeout(sweetPassword, 2000);
+          </script>
         @endif
         <!-- Account -->
         <div class="card-body mb-3">
@@ -132,7 +144,7 @@
             </div>
             <div class="mb-3 col-md-6">
               <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
-              <select id="jenis_kelamin" class="select2 form-select">
+              <select id="jenis_kelamin" name="jenis_kelamin" class="select2 form-select">
                 <option value="">--Pilih--</option>
                 <option value="p" {{ $user->jenis_kelamin == 'p' ? 'selected' : '' }}>Laki-Laki</option>
                 <option value="w" {{ $user->jenis_kelamin == 'w' ? 'selected' : '' }}>Wanita</option>

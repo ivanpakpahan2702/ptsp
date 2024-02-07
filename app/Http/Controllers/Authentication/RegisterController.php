@@ -43,6 +43,6 @@ class RegisterController extends Controller
         $user = User::create($validatedData);
         event(new Registered($user));
         Auth::login($user);
-        return redirect('/');
+        return redirect('/')->with('Success-Register','Silahkan Cek Surel Email Anda, Untuk Lakukan Aktivasi');
     }
 }

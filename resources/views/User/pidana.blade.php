@@ -13,10 +13,16 @@
           </button>
           <hr class="my-3" />
           @if (session()->has('success-pidana'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              <strong>Berhasil Edit Tampilan Pidana</strong>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+            <script>
+              const sweetPidana = () => {
+                Swal.fire({
+                  title: "Berhasil!",
+                  text: "Tampilan Bagian Pidana Diubah",
+                  icon: "success"
+                });
+              }
+              const show_alert = setTimeout(sweetPidana, 2000);
+            </script>
           @endif
           <form action="/update-pidana/{{ $pidana->first() == null ? '0' : $pidana->last()->id }}" method="POST">
             @csrf
@@ -42,7 +48,7 @@
           </form>
           <script>
             $('#Pidana_article').summernote({
-              placeholder: 'Tampilan untuk bagian pidana',
+              placeholder: 'Tampilan untuk bagian pidana, Tekan Shift+Enter Untuk Paragraf Baru Yang Tidak Jauh',
               tabsize: 2,
               height: 420,
               toolbar: [

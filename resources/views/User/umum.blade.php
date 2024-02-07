@@ -13,10 +13,16 @@
           </button>
           <hr class="my-3" />
           @if (session()->has('success-umum'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              <strong>Berhasil Edit Tampilan Umum dan Keuangan</strong>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+            <script>
+              const sweetUmum = () => {
+                Swal.fire({
+                  title: "Berhasil!",
+                  text: "Tampilan Bagian Umum dan Keuangan Diubah",
+                  icon: "success"
+                });
+              }
+              const show_alert = setTimeout(sweetUmum, 2000);
+            </script>
           @endif
           <form action="/update-umum/{{ $umum->first() == null ? '0' : $umum->last()->id }}" method="POST">
             @csrf
@@ -42,7 +48,7 @@
           </form>
           <script>
             $('#Umum_article').summernote({
-              placeholder: 'Tampilan untuk bagian umum',
+              placeholder: 'Tampilan untuk umum, Tekan Shift+Enter Untuk Paragraf Baru Yang Tidak Jauh',
               tabsize: 2,
               height: 420,
               toolbar: [

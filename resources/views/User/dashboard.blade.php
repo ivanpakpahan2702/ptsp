@@ -13,10 +13,16 @@
           </button>
           <hr class="my-3" />
           @if (session()->has('success-dashboard'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              <strong>Berhasil Edit Dashboard</strong>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+            <script>
+              const sweetDashboard = () => {
+                Swal.fire({
+                  title: "Berhasil!",
+                  text: "Tampilan Dashbord Diubah",
+                  icon: "success"
+                });
+              }
+              const show_alert = setTimeout(sweetDashboard, 2000);
+            </script>
           @endif
           <form action="/update-dashboard/{{ $dashboard->first() == null ? '0' : $dashboard->last()->id }}" method="POST">
             @csrf
@@ -42,7 +48,7 @@
           </form>
           <script>
             $('#Dashboard_article').summernote({
-              placeholder: 'Tampilan untuk dashboard',
+              placeholder: 'Tampilan untuk dashboard, Tekan Shift+Enter Untuk Paragraf Baru Yang Tidak Jauh',
               tabsize: 2,
               height: 420,
               toolbar: [
@@ -92,4 +98,16 @@
       toast.show()
     }
   </script>
+  @if (session()->has('Success-Register'))
+    <script>
+      const sweetRegister = () => {
+        Swal.fire({
+          title: "Berhasil Mendaftar!",
+          text: "Silahkan Cek Surel Email, Untuk Verifikasi",
+          icon: "success"
+        });
+      }
+      const show_alert = setTimeout(sweetRegister, 2000);
+    </script>
+  @endif
 @endsection

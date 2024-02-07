@@ -13,10 +13,16 @@
           </button>
           <hr class="my-3" />
           @if (session()->has('success-hukum'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              <strong>Berhasil Edit Tampilan Hukum</strong>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+            <script>
+              const sweetHukum = () => {
+                Swal.fire({
+                  title: "Berhasil!",
+                  text: "Tampilan Bagian Hukum Diubah",
+                  icon: "success"
+                });
+              }
+              const show_alert = setTimeout(sweetHukum, 2000);
+            </script>
           @endif
           <form action="/update-hukum/{{ $hukum->first() == null ? '0' : $hukum->last()->id }}" method="POST">
             @csrf
@@ -42,7 +48,7 @@
           </form>
           <script>
             $('#Hukum_article').summernote({
-              placeholder: 'Tampilan untuk bagian pidana',
+              placeholder: 'Tampilan untuk hukum, Tekan Shift+Enter Untuk Paragraf Baru Yang Tidak Jauh',
               tabsize: 2,
               height: 420,
               toolbar: [

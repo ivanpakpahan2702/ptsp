@@ -13,10 +13,16 @@
           </button>
           <hr class="my-3" />
           @if (session()->has('success-posbakum'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              <strong>Berhasil Edit Tampilan Posbakum</strong>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+            <script>
+              const sweetPosbakum = () => {
+                Swal.fire({
+                  title: "Berhasil!",
+                  text: "Tampilan Posbakum Diubah",
+                  icon: "success"
+                });
+              }
+              const show_alert = setTimeout(sweetPosbakum, 2000);
+            </script>
           @endif
           <form action="/update-posbakum/{{ $posbakum->first() == null ? '0' : $posbakum->last()->id }}" method="POST">
             @csrf
@@ -42,7 +48,7 @@
           </form>
           <script>
             $('#Posbakum_article').summernote({
-              placeholder: 'Tampilan untuk bagian posbakum',
+              placeholder: 'Tampilan untuk bagian posbakum, Tekan Shift+Enter Untuk Paragraf Baru Yang Tidak Jauh',
               tabsize: 2,
               height: 420,
               toolbar: [
