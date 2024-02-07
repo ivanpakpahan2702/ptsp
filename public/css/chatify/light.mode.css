@@ -1,3 +1,6 @@
+.user-role {
+    color: #202020;
+}
 /*app scroll*/
 .app-scroll::-webkit-scrollbar-thumb,
 .app-scroll-thin::-webkit-scrollbar-thumb {
