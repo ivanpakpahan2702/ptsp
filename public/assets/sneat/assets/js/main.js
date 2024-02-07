@@ -130,19 +130,19 @@ function appendZero(value) {
 function theTime() {
     var d = new Date();
     document.getElementById("time").innerHTML = d.toLocaleTimeString([], { hour12: false});
+    if (day < 10) {
+      day = appendZero(day);
+    }
+    
+    if (month < 10) {
+      month = appendZero(month);
+    }
+  
+    today = day + "/" + month + "/" + today.getFullYear();
+    
+    document.getElementById("date").innerHTML = today;
+    
 }
-
-if (day < 10) {
-    day = appendZero(day);
-}
-
-if (month < 10) {
-    month = appendZero(month);
-}
-
-today = day + "/" + month + "/" + today.getFullYear();
-
-document.getElementById("date").innerHTML = today;
 
 var myVar = setInterval(function () {
     theTime();
