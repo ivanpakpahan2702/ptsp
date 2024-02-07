@@ -30,7 +30,7 @@
     </li>
 
     <!-- Perdata -->
-    <li class="menu-item {{ $title === 'Bagian Perdata' ? 'active open' : '' }}"">
+    <li class="menu-item {{ $title === 'Bagian Perdata' ? 'active open' : '' }}">
       <a href="/bagian-perdata" class="menu-link">
         <i class="menu-icon tf-icons bx bx-clipboard"></i>
         <div>Bagian Perdata</div>
@@ -38,7 +38,7 @@
     </li>
 
     <!-- Pidana -->
-    <li class="menu-item {{ $title === 'Bagian Pidana' ? 'active open' : '' }}"">
+    <li class="menu-item {{ $title === 'Bagian Pidana' ? 'active open' : '' }}">
       <a href="/bagian-pidana" class="menu-link">
         <i class="menu-icon tf-icons bx bx-briefcase"></i>
         <div>Bagian Pidana</div>
@@ -46,7 +46,7 @@
     </li>
 
     <!-- Hukum -->
-    <li class="menu-item {{ $title === 'Bagian Hukum' ? 'active open' : '' }}"">
+    <li class="menu-item {{ $title === 'Bagian Hukum' ? 'active open' : '' }}">
       <a href="/bagian-hukum" class="menu-link">
         <i class="menu-icon tf-icons bx bx-book-bookmark"></i>
         <div>Bagian Hukum</div>
@@ -54,7 +54,7 @@
     </li>
 
     <!-- Umum -->
-    <li class="menu-item {{ $title === 'Bagian Umum & Keuangan' ? 'active open' : '' }}"">
+    <li class="menu-item {{ $title === 'Bagian Umum & Keuangan' ? 'active open' : '' }}">
       <a href="/bagian-umum" class="menu-link">
         <i class="menu-icon tf-icons bx bx-dollar-circle"></i>
         <div>Umum & Keuangan</div>
@@ -62,10 +62,22 @@
     </li>
 
     <!-- Posbakum -->
-    <li class="menu-item {{ $title === 'Posbakum' ? 'active open' : '' }}"">
+    <li class="menu-item {{ $title === 'Posbakum' ? 'active open' : '' }}">
       <a href="/posbakum" class="menu-link">
         <i class="menu-icon tf-icons bx bx-shield"></i>
         <div>Posbakum</div>
+      </a>
+    </li>
+
+    <li class="menu-header small text-uppercase">
+      <span class="menu-header-text">Fitur</span>
+    </li>
+
+    <!-- Posbakum -->
+    <li class="menu-item">
+      <a href="/chat-room" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-chat"></i>
+        <div>PTSP Chat Room</div>
       </a>
     </li>
 

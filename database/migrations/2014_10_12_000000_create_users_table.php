@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('role')->default('Pengguna');
             $table->string('avatar')->nullable();
+            $table->string('avatar_profil')->nullable();
             $table->boolean('is_admin')->default(false);
             $table->rememberToken();
             $table->string('nik')->nullable();

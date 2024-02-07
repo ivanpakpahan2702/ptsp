@@ -21,7 +21,7 @@
           <a class="nav-link dropdown-toggle hide-arrow" href="#" data-bs-toggle="dropdown">
             <div class="avatar avatar-online">
               <img
-                src="{{ auth()->user()->avatar != null ? URL::asset('Storage/' . auth()->user()->avatar . '') : URL::asset('assets/images/avatars/no_image.jpg') }}"
+                src="{{ auth()->user()->avatar_profil != null ? URL::asset('Storage/' . auth()->user()->avatar_profil . '') : URL::asset('assets/images/avatars/no_image.jpg') }}"
                 alt class="w-px-40 h-auto rounded-circle" />
             </div>
           </a>
@@ -32,7 +32,7 @@
                   <div class="flex-shrink-0 me-3">
                     <div class="avatar avatar-online">
                       <img
-                        src="{{ auth()->user()->avatar != null ? URL::asset('Storage/' . auth()->user()->avatar . '') : URL::asset('assets/images/avatars/no_image.jpg') }}"
+                        src="{{ auth()->user()->avatar_profil != null ? URL::asset('Storage/' . auth()->user()->avatar_profil . '') : URL::asset('assets/images/avatars/no_image.jpg') }}"
                         alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </div>

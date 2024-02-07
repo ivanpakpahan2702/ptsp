@@ -10,7 +10,6 @@ use App\Http\Controllers\User\HukumController as UserHukumController;
 use App\Http\Controllers\User\PerdataController as UserPerdataController;
 use App\Http\Controllers\User\PidanaController as UserPidanaController;
 use App\Http\Controllers\User\PosbakumController as UserPosbakumController;
-use App\Http\Controllers\User\RoomChatController;
 use App\Http\Controllers\User\UmumController as UserUmumController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -29,8 +28,6 @@ use Illuminate\Support\Facades\Route;
 // User
 
 Route::get('/', [UserDashboardController::class, 'index']);
-
-Route::get('/room-chat', [RoomChatController::class, 'index'])->middleware(['auth', 'verified'])->name('user-room-chat');
 
 Route::get('/bagian-perdata', [UserPerdataController::class, 'index']);
 

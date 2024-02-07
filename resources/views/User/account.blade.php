@@ -21,22 +21,22 @@
         @endif
         <!-- Account -->
         <div class="card-body mb-3">
-          @error('avatar')
+          @error('avatar_profil')
             <div class="invalid-feedback d-block mb-2">
               {{ $message }}
             </div>
           @enderror
           <div class="d-flex align-items-start align-items-sm-center gap-4">
             <img
-              src="{{ $user->avatar != null ? URL::asset('Storage/' . $user->avatar . '') : URL::asset('assets/images/avatars/no_image.jpg') }}"
+              src="{{ $user->avatar_profil != null ? URL::asset('Storage/' . $user->avatar_profil . '') : URL::asset('assets/images/avatars/no_image.jpg') }}"
               alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
             <div class="button-wrapper">
               <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
                 <span class="d-none d-sm-block">Upload foto baru</span>
                 <i class="bx bx-upload d-block d-sm-none"></i>
-                <input type="file" id="upload" name="avatar"
-                  class="account-file-input @error('avatar') is-invalid @enderror" hidden accept="image/png, image/jpeg"
-                  onchange="readUrl(this)" />
+                <input type="file" id="upload" name="avatar_profil"
+                  class="account-file-input @error('avatar_profil') is-invalid @enderror" hidden
+                  accept="image/png, image/jpeg" onchange="readUrl(this)" />
               </label>
 
 

@@ -52,7 +52,7 @@ class AccountController extends Controller
         } else {
             $rules = [
                 'name' => 'required|max:255',
-                'avatar' => 'image|file|max:1024',
+                'avatar_profil' => 'image|file|max:1024',
                 'tempat_lahir' => '',
                 'tanggal_lahir' => '',
                 'agama' => '',
@@ -77,12 +77,12 @@ class AccountController extends Controller
                 $validated_data['email_verified_at'] = null;
             }
 
-            if ($request->file('avatar')) {
-                $validated_data['avatar'] = $request->file('avatar')->store('avatars');
+            if ($request->file('avatar_profil')) {
+                $validated_data['avatar_profil'] = $request->file('avatar_profil')->store('avatars');
             }
 
-            if (!($request->file('avatar')) && ($user->avatar != null)) {
-                $validated_data['avatar'] = null;
+            if (!($request->file('avatar_profil')) && ($user->avatar_profil != null)) {
+                $validated_data['avatar_profil'] = null;
             }
 
             DB::table('users')
