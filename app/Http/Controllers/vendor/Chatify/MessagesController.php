@@ -90,7 +90,7 @@ class MessagesController extends Controller
         if (Chatify::storage()->exists($filePath)) {
             return Chatify::storage()->download($filePath);
         }
-        return abort(404, "Sorry, File does not exist in our server or may have been deleted!");
+        return abort(404, "Maaf, File tidak ada di server, atau sudah dihapus!");
     }
 
     /**
@@ -127,11 +127,11 @@ class MessagesController extends Controller
                     $file->storeAs(config('chatify.attachments.folder'), $attachment, config('chatify.storage_disk_name'));
                 } else {
                     $error->status = 1;
-                    $error->message = "File extension not allowed!";
+                    $error->message = "Ekstensi file tidak diperbolehkan!";
                 }
             } else {
                 $error->status = 1;
-                $error->message = "File size you are trying to upload is too large!";
+                $error->message = "Ukuran file terlalu besar!";
             }
         }
 

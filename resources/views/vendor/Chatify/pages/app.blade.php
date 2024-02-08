@@ -1,4 +1,10 @@
 @include('Chatify::layouts.headLinks')
+<!-- Loader -->
+<div id="loading" class="">
+  <div class="spinner-grow text-secondary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
 <div class="messenger">
   {{-- ----------------------Users/Groups lists side---------------------- --}}
   <div class="messenger-listView {{ !!$id ? 'conversation-active' : '' }}">
@@ -112,3 +118,8 @@
 
 @include('Chatify::layouts.modals')
 @include('Chatify::layouts.footerLinks')
+<script>
+  $(window).on('load', function() {
+    $('#loading').fadeOut(1000);
+  })
+</script>
