@@ -5,6 +5,44 @@
 
       <h1 class="h3 mb-3">Selamat Datang di<strong> PTSP-PN Tais</strong></h1>
       <hr class="my-3" />
+      <div id="carouselExample" class="carousel slide col-md-8 offset-md-2" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="assets/sneat/assets/img/elements/13.jpg" alt="First slide" />
+            <div class="carousel-caption d-none d-md-block">
+              <h3>First slide</h3>
+              <p>Eos mutat malis maluisset et, agam ancillae quo te, in vim congue pertinacia.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="assets/sneat/assets/img/elements/2.jpg" alt="Second slide" />
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Second slide</h3>
+              <p>In numquam omittam sea.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="assets/sneat/assets/img/elements/18.jpg" alt="Third slide" />
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Third slide</h3>
+              <p>Lorem ipsum dolor sit amet, virtute consequat ea qui, minim graeco mel no.</p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </a>
+      </div>
       @auth
         @if (auth()->user()->role != 'Pengguna' and auth()->user()->role != null)
           <!-- Button trigger modal -->
