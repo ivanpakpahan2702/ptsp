@@ -16,6 +16,17 @@
       </li>
 
       @auth
+        <li class="nav-item lh-1">
+          <a href="/chat-room">
+            <button type="button" class="btn btn-primary position-relative me-3">
+              <i class="fa-solid fa-comment"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger notif-class">
+                {{ auth()->user()->getChatCount() }}
+                <span class="visually-hidden">Pesan Tidak Terbaca</span>
+              </span>
+            </button>
+          </a>
+        </li>
         <!-- Logged User -->
         <li class="nav-item navbar-dropdown dropdown-user dropdown">
           <a class="nav-link dropdown-toggle hide-arrow" href="#" data-bs-toggle="dropdown">

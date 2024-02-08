@@ -41,4 +41,15 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    public function getChatCount()
+    {
+        if (auth()->check()) {
+            $count = ChMessage::where('to_id', auth()->id())
+                ->where('seen', '0')
+                ->count();
+            return $count;
+        }
+        return 0;
+    }
+
 }

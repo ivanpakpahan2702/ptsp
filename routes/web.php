@@ -104,6 +104,13 @@ Route::put('/update-posbakum/{posbakum_id}', [UserPosbakumController::class, 'up
 
 // User-Admin (Perdata-Pidana-Hukum-Umum-Posbakum)
 
+// Chat
+Route::get('unreadcount', function () {
+    $count = auth()->user()->getChatCount();
+    return response()->json(['count' => $count]);
+})->name('unreadcount');
+// Chat
+
 // Clear Cache
 Route::get('/clear-cache', function () {
     $exitCode = Artisan::call('cache:clear');

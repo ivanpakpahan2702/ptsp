@@ -157,6 +157,26 @@
       $('#loading').fadeOut(1000);
     })
   </script>
+  <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+  <script>
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('2be5e6ec9b51fdb92368', {
+      cluster: 'ap1'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      $.ajax({
+        url: "{{ route('unreadcount') }}",
+        method: "GET",
+        success: function(data) {
+          $('.notif-class').html(data.count);
+        }
+      })
+    });
+  </script>
 </body>
 
 </html>

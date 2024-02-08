@@ -68,7 +68,7 @@
           <div><br></div>
         @endif
       @endauth
-      <div id="carouselExample" class="carousel slide col-md-8 offset-md-2" data-bs-ride="carousel">
+      <div id="carouselExample" class="carousel-fade carousel slide col-md-8 offset-md-2" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
           <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>

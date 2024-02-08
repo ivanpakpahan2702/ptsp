@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\vendor\Chatify\Api;
 
+use App\Events\ChatNotification;
 use App\Models\ChFavorite as Favorite;
 use App\Models\ChMessage as Message;
 use App\Models\User;
@@ -158,6 +159,8 @@ class MessagesController extends Controller
                 ]);
             }
         }
+
+        event(new ChatNotification('Pesan Terkirim'));
 
         // send the response
         return Response::json([
