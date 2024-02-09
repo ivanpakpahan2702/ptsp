@@ -9,7 +9,7 @@
         @if (auth()->user()->role != 'Pengguna' and auth()->user()->role != null)
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Edit
+            <i class="fa fa-pen"></i>
           </button>
           <hr class="my-3" />
           @if (session()->has('success-dashboard'))

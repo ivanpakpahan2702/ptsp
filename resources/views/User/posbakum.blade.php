@@ -6,10 +6,11 @@
       <h1 class="h3 mb-3">Selamat Datang di<strong> Pos Bantuan Hukum</strong></h1>
       <hr class="my-3" />
       @auth
-        @if (auth()->user()->role != 'Pengguna' and auth()->user()->role != null and auth()->user()->role == 'Admin Posbakum')
+        @if (auth()->user()->role != 'Pengguna' and auth()->user()->role != null and auth()->user()->role == 'Admin Posbakum' or
+                auth()->user()->role == 'Master Admin')
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Edit
+            <i class="fa fa-pen"></i>
           </button>
           <hr class="my-3" />
           @if (session()->has('success-posbakum'))
