@@ -118,3 +118,10 @@ Route::get('/clear-cache', function () {
     return 'DONE'; //Return anything
 });
 // Clear Cache
+
+// Symlink
+Route::get('/symlink', function () {
+    $exitCode = Artisan::call('storage:link');
+    return 'DONE'; //Return anything
+});
+// Symlink

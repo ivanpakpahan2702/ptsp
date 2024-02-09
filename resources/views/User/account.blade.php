@@ -194,7 +194,7 @@
             <p class="mb-0">Saat anda menghapus akun anda, semua data yang telah anda daftarkan akan terhapus.</p>
           </div>
         </div>
-        <form id="formAccountDeactivation" action="{{ url('/delete-profil/' . $user->id) }}" method="POST">
+        <form id="formAccountDeactivation" action="{{ url('/delete-profil/' . $user->id) }}" method="POST" onsubmit="return confirm('Apakah anda yakin?');">
           @csrf
           @method('delete')
           <div class="form-check mb-3">
