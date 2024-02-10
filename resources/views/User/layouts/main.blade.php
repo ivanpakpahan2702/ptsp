@@ -66,6 +66,19 @@
     }
   </style>
 
+  @auth
+    @if (auth()->user()->role == 'Master Admin')
+      <link href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.dataTables.min.css" rel="stylesheet"
+        media="screen">
+      <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" media="screen">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+      <meta name="csrf-token" content="{{ csrf_token() }}" />
+      <script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+      <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.print.min.js"></script>
+    @endif
+  @endauth
 </head>
 
 <body class="myscrollbar">
@@ -127,7 +140,7 @@
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
 
-  <script src="assets/sneat/assets/vendor/libs/jquery/jquery.js"></script>
+  {{-- <script src="assets/sneat/assets/vendor/libs/jquery/jquery.js"></script> --}}
   <script src="assets/sneat/assets/vendor/libs/popper/popper.js"></script>
   <script src="assets/sneat/assets/vendor/js/bootstrap.js"></script>
   <script src="assets/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>

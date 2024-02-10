@@ -137,7 +137,7 @@ function theTime() {
     if (month < 10) {
       month = appendZero(month);
     }
-  
+
     today = day + "/" + month + "/" + today.getFullYear();
     
     document.getElementById("date").innerHTML = today;

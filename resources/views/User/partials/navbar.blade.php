@@ -80,16 +80,16 @@
         <div>PTSP Chat Room</div>
       </a>
     </li>
-
-    @if (auth()->user()->role == 'Master Admin')
-      <li class="menu-item">
-        <a href="/user-table" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-table"></i>
-          <div>Database Pengguna</div>
-        </a>
-      </li>
-    @endif
-
+    @auth
+      @if (auth()->user()->role == 'Master Admin')
+        <li class="menu-item {{ $title === 'Data Pengguna' ? 'active open' : '' }}">
+          <a href="/user-table" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-table"></i>
+            <div>Database Pengguna</div>
+          </a>
+        </li>
+      @endif
+    @endauth
   </ul>
 </aside>
 <!-- / Menu -->

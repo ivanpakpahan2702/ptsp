@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserDataController;
 use App\Http\Controllers\Authentication\EmailVerifyController;
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
@@ -125,3 +126,7 @@ Route::get('/symlink', function () {
     return 'DONE'; //Return anything
 });
 // Symlink
+
+// Master Admin
+Route::resource('user-table', UserDataController::class);
+// Master Admin

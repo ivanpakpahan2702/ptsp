@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         ]);
         User::create([
             "name" => "Sri Wahyuni",
-            "email" => "ivanime027@gmail.com",
+            "email" => "sri.wahyuni1788@gmail.com",
             "password" => Hash::make('123456'),
             "role" => 'Pengguna',
             "agama" => 'Kristen Protestan',
@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
         ]);
         User::create([
             "name" => "Misha Petrenkov",
-            "email" => "petrenko2702@gmail.com",
+            "email" => "petrenko270200@gmail.com",
             "password" => Hash::make('123456'),
             "role" => 'Admin Perdata',
             "agama" => 'Kristen Protestan',
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
         ]);
         User::create([
             "name" => "Burjouis Leonardo",
-            "email" => "ivanpakpahangn@gmail.com",
+            "email" => "leonardo.da27@gmail.com",
             "password" => Hash::make('123456'),
             "role" => 'Admin Hukum',
             "agama" => 'Kristen Protestan',
@@ -65,14 +65,26 @@ class DatabaseSeeder extends Seeder
         ]);
         User::create([
             "name" => "Yjra Pajeet",
-            "email" => "ivanhartzer@gmail.com",
+            "email" => "yjrahindi@gmail.com",
             "password" => Hash::make('123456'),
             "role" => 'Admin Hukum',
-            "agama" => 'Kristen Protestan',
+            "agama" => 'Islam',
             "jenis_kelamin" => 'p',
             "nik" => "1002021202000002",
             "kode_pos" => "32675",
             "avatar" => '5.jpg',
+            'email_verified_at' => now(),
+        ]);
+        User::create([
+            "name" => "Kuswandi Pakpahan",
+            "email" => "kuswandi98.pakpahan@gmail.com",
+            "password" => Hash::make('123456'),
+            "role" => 'Master Admin',
+            "agama" => 'Kristen Protestan',
+            "jenis_kelamin" => 'p',
+            "nik" => "1002021202000002",
+            "kode_pos" => "32675",
+            "avatar" => '6.jpg',
             'email_verified_at' => now(),
         ]);
     }
