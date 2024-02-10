@@ -205,17 +205,19 @@
 
       $('body').on('click', '.deleteUser', function() {
         var id = $(this).data("id");
-        confirm("Apakah anda yakin?");
-        $.ajax({
-          type: "DELETE",
-          url: "{{ route('user-table.store') }}" + '/' + id,
-          success: function(data) {
-            table.draw();
-          },
-          error: function(data) {
-            console.log('Error:', data);
-          }
-        });
+        var konfirmasi = confirm("Apakah anda yakin?");
+        if (konfirmasi) {
+          $.ajax({
+            type: "DELETE",
+            url: "{{ route('user-table.store') }}" + '/' + id,
+            success: function(data) {
+              table.draw();
+            },
+            error: function(data) {
+              console.log('Error:', data);
+            }
+          });
+        }
       });
 
     });
