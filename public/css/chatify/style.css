@@ -1100,6 +1100,7 @@ div.loadingPlaceholder-date {
         white-space: nowrap;
         overflow: hidden !important;
         text-overflow: ellipsis;
+        display: none;
     }
     .chatify-md-block {
         display: block;

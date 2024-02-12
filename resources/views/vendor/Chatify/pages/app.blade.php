@@ -66,7 +66,6 @@
           </div>
           <a href="#" class="user-name">{{ config('chatify.name') }}</a>
           &nbsp;
-          <small class="user-role"></small>
         </div>
         {{-- header buttons --}}
         <nav class="m-header-right">

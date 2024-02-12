@@ -424,7 +424,7 @@ function IDinfo(id) {
                 // update info in view
                 $(".messenger-infoView .info-name").text(data.fetch.name);
                 $(".m-header-messaging .user-name").text(data.fetch.name);
-                $(".m-header-messaging .user-role").text(
+                $(".messenger-infoView .user-role").text(
                     "(" + data.fetch.role + ")"
                 );
                 // Star status

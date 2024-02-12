@@ -120,8 +120,6 @@ let menu, animate;
 
 // Time and Date at Navbar
 var today = new Date();
-var day = today.getDate();
-var month = today.getMonth() + 1;
 
 function appendZero(value) {
     return "0" + value;
@@ -129,17 +127,21 @@ function appendZero(value) {
 
 function theTime() {
     var d = new Date();
+    let day = d.getDate();
+    let month = d.getMonth();
+    let year = d.getFullYear();  
     document.getElementById("time").innerHTML = d.toLocaleTimeString([], { hour12: false});
+    
     if (day < 10) {
       day = appendZero(day);
     }
-    
-    if (month < 10) {
-      month = appendZero(month);
-    }
 
-    today = day + "/" + month + "/" + today.getFullYear();
+    var bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember',]
+    let nama_bulan = bulan[month];
     
+    today = day + "/" + nama_bulan + "/" + year;
+    
+    document.getElementById("date").innerHTML = '';
     document.getElementById("date").innerHTML = today;
     
 }
