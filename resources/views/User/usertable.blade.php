@@ -191,16 +191,34 @@
         });
 
         function printErrorMsg(msg) {
-          var string_error = ''
+          var string_error = '';
+          var error_msg = [];
           $.each(msg, function(key, value) {
-            string_error += '' + value + '<br>';
+            error_msg.push(value);
           });
+          error_msg2 = (removeDuplicateValue(error_msg));
+          error_msg2.forEach(element => {
+            if (element == 'kolom wajib diisi.') {
+              pesan = 'Semua kolom wajib diisi!'
+            } else {
+              pesan = element
+            }
+            string_error += '' + pesan + '<hr>';
+          });
+
+
           Swal.fire({
             title: "Gagal!",
             html: string_error,
             icon: "error"
           });
         }
+
+        function removeDuplicateValue(arrayData) {
+          return arrayData.filter((value, index) => arrayData.indexOf(value) === index)
+        }
+
+
       });
 
       $('body').on('click', '.deleteUser', function() {
