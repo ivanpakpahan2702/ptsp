@@ -40,7 +40,7 @@
           @enderror
           <div class="d-flex align-items-start align-items-sm-center gap-4">
             <img
-              src="{{ $user->avatar_profil != null ? URL::asset('Storage/' . $user->avatar_profil . '') : URL::asset('assets/images/avatars/no_image.jpg') }}"
+              src="{{ $user->avatar_profil != null ? URL::asset('assets/images/account_avatar/' . $user->avatar_profil . '') : URL::asset('assets/images/avatars/no_image.jpg') }}"
               alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
             <div class="button-wrapper">
               <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
@@ -194,7 +194,8 @@
             <p class="mb-0">Saat anda menghapus akun anda, semua data yang telah anda daftarkan akan terhapus.</p>
           </div>
         </div>
-        <form id="formAccountDeactivation" action="{{ url('/delete-profil/' . $user->id) }}" method="POST" onsubmit="return confirm('Apakah anda yakin?');">
+        <form id="formAccountDeactivation" action="{{ url('/delete-profil/' . $user->id) }}" method="POST"
+          onsubmit="return confirm('Apakah anda yakin?');">
           @csrf
           @method('delete')
           <div class="form-check mb-3">

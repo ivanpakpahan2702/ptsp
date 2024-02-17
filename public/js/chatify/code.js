@@ -406,14 +406,36 @@ function IDinfo(id) {
                     NProgress.remove();
                     return;
                 }
-                // avatar photo
-                $(".messenger-infoView")
-                    .find(".avatar")
-                    .css("background-image", 'url("' + data.user_avatar + '")');
-                $(".header-avatar").css(
-                    "background-image",
-                    'url("' + data.user_avatar + '")'
-                );
+
+                if (data.user_avatar == null) {
+                    // avatar photo
+                    $(".messenger-infoView")
+                        .find(".avatar")
+                        .css(
+                            "background-image",
+                            'url("/assets/images/account_avatar/default_user.png")'
+                        );
+                    $(".header-avatar").css(
+                        "background-image",
+                        'url("/assets/images/account_avatar/default_user.png")'
+                    );
+                } else {
+                    // avatar photo
+                    $(".messenger-infoView")
+                        .find(".avatar")
+                        .css(
+                            "background-image",
+                            'url("/assets/images/account_avatar/' +
+                                data.user_avatar +
+                                '")'
+                        );
+                    $(".header-avatar").css(
+                        "background-image",
+                        'url("/assets/images/account_avatar/' +
+                            data.user_avatar +
+                            '")'
+                    );
+                }
                 // Show shared and actions
                 $(".messenger-infoView-btns .delete-conversation").show();
                 $(".messenger-infoView-shared").show();

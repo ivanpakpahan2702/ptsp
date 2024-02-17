@@ -78,10 +78,18 @@ class AccountController extends Controller
             }
 
             if ($request->file('avatar_profil')) {
-                $validated_data['avatar_profil'] = $request->file('avatar_profil')->store('avatars');
+                if ($user_now->avatar_profil != null) {
+                    unlink(public_path() . "/assets/images/account_avatar/" . $user_now->avatar_profil);
+                }
+                $validated_data['avatar_profil'] = date('d-m-Y_H-i-s') . "_" . uniqid() . "_" . $request->avatar_profil->getClientOriginalName();
+                $image_path = "/assets/images/account_avatar/" . $validated_data['avatar_profil'];
+                file_put_contents(public_path() . $image_path, file_get_contents($request->file('avatar_profil')));
             }
 
             if (!($request->file('avatar_profil')) && ($user->avatar_profil != null)) {
+                if ($user_now->avatar_profil != null) {
+                    unlink(public_path() . "/assets/images/account_avatar/" . $user_now->avatar_profil);
+                }
                 $validated_data['avatar_profil'] = null;
             }
 

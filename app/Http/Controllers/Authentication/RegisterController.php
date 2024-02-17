@@ -41,6 +41,7 @@ class RegisterController extends Controller
         );
         $validatedData['password'] = Hash::make($validatedData['password']);
         $validatedData['dark_mode'] = '1';
+        $validatedData['avatar_profil'] = 'default_user.png';
         $user = User::create($validatedData);
         event(new Registered($user));
         Auth::login($user);

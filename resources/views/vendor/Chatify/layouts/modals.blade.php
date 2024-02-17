@@ -8,7 +8,7 @@
 <div class="app-modal" data-name="delete">
   <div class="app-modal-container">
     <div class="app-modal-card" data-name="delete" data-modal='0'>
-      <div class="app-modal-header">Apakah anda yakin untuk menghapus seluruh percakapan ini?</div>
+      <div class="app-modal-header">Apakah anda yakin untuk menghapus chat ini?</div>
       <div class="app-modal-body">Apabila dihapus, Anda tidak bisa memulihkannya kembali</div>
       <div class="app-modal-footer">
         <a href="javascript:void(0)" class="app-btn cancel">Batal</a>
@@ -39,7 +39,8 @@
         <div class="app-modal-body">
           {{-- Udate profile avatar --}}
           <div class="avatar av-l upload-avatar-preview chatify-d-flex"
-            style="background-image: url('{{ Chatify::getUserWithAvatar(Auth::user())->avatar }}');"></div>
+            style='background-image: url("/assets/images/account_avatar/{{ Auth::user()->avatar_profil ?? 'default_user.png' }}");'>
+          </div>
           <p class="upload-avatar-details"></p>
           <label class="app-btn a-btn-primary update" style="background-color:{{ $messengerColor }}">
             Unggah Foto Baru

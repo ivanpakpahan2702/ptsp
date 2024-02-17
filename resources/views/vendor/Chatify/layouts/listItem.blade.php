@@ -30,7 +30,8 @@
         @if ($user->active_status)
           <span class="activeStatus"></span>
         @endif
-        <div class="avatar av-m" style="background-image: url('{{ $user->avatar }}');">
+        <div class="avatar av-m"
+          style="background-image: url('/assets/images/account_avatar/{{ $user->avatar_profil ?? 'default_user.png' }}');">
         </div>
       </td>
       {{-- center side --}}
@@ -62,7 +63,8 @@
     <tr data-action="0">
       {{-- Avatar side --}}
       <td>
-        <div class="avatar av-m" style="background-image: url('{{ $user->avatar }}');">
+        <div class="avatar av-m"
+          style="background-image: url('/assets/images/account_avatar/{{ $user->avatar_profil ?? 'default_user.png' }}');">
         </div>
       </td>
       {{-- center side --}}

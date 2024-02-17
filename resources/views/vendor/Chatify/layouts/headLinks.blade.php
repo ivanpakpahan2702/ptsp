@@ -10,7 +10,7 @@
 <meta name="url" content="{{ url('') . '/' . config('chatify.routes.prefix') }}" data-user="{{ Auth::user()->id }}">
 
 <!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="assets/images/logos/icons8-law-96.png" />
+<link rel="icon" type="image/x-icon" href="/assets/images/logos/icons8-law-96.png" />
 
 {{-- scripts --}}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

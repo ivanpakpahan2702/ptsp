@@ -13,6 +13,6 @@
 </div>
 {{-- shared photos --}}
 <div class="messenger-infoView-shared">
-  <p class="messenger-title"><span>Media Yang Dibagikan</span></p>
+  <p class="messenger-title"><span>Foto Yang Dibagikan</span></p>
   <div class="shared-photos-list"></div>
 </div>
