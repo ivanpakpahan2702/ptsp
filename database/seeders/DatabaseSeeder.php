@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
             "jenis_kelamin" => 'p',
             "nik" => "1002021202000002",
             "kode_pos" => "32675",
-            "avatar" => '1.jpg',
             'email_verified_at' => now(),
         ]);
         User::create([
@@ -36,7 +35,6 @@ class DatabaseSeeder extends Seeder
             "jenis_kelamin" => 'w',
             "nik" => "1002021202000002",
             "kode_pos" => "32675",
-            "avatar" => '2.png',
             'email_verified_at' => now(),
         ]);
         User::create([
@@ -48,7 +46,6 @@ class DatabaseSeeder extends Seeder
             "jenis_kelamin" => 'p',
             "nik" => "1002021202000002",
             "kode_pos" => "32675",
-            "avatar" => '3.png',
             'email_verified_at' => now(),
         ]);
         User::create([
@@ -60,7 +57,6 @@ class DatabaseSeeder extends Seeder
             "jenis_kelamin" => 'p',
             "nik" => "1002021202000002",
             "kode_pos" => "32675",
-            "avatar" => '4.jpg',
             'email_verified_at' => now(),
         ]);
         User::create([
@@ -72,7 +68,6 @@ class DatabaseSeeder extends Seeder
             "jenis_kelamin" => 'p',
             "nik" => "1002021202000002",
             "kode_pos" => "32675",
-            "avatar" => '5.jpg',
             'email_verified_at' => now(),
         ]);
         User::create([
@@ -84,7 +79,6 @@ class DatabaseSeeder extends Seeder
             "jenis_kelamin" => 'p',
             "nik" => "1002021202000002",
             "kode_pos" => "32675",
-            "avatar" => '6.jpg',
             'email_verified_at' => now(),
         ]);
     }

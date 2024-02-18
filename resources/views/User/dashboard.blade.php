@@ -73,28 +73,20 @@
           <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
           <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
           <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3"></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="assets/sneat/assets/img/elements/13.jpg" alt="First slide" />
-            <div class="carousel-caption d-none d-md-block">
-              <h3>First slide</h3>
-              <p>Eos mutat malis maluisset et, agam ancillae quo te, in vim congue pertinacia.</p>
-            </div>
+            <img class="d-block w-100" src="/assets/images/carousel/1.jpeg" alt="First slide" />
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="assets/sneat/assets/img/elements/2.jpg" alt="Second slide" />
-            <div class="carousel-caption d-none d-md-block">
-              <h3>Second slide</h3>
-              <p>In numquam omittam sea.</p>
-            </div>
+            <img class="d-block w-100" src="/assets/images/carousel/2.jpeg" alt="Second slide" />
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="assets/sneat/assets/img/elements/18.jpg" alt="Third slide" />
-            <div class="carousel-caption d-none d-md-block">
-              <h3>Third slide</h3>
-              <p>Lorem ipsum dolor sit amet, virtute consequat ea qui, minim graeco mel no.</p>
-            </div>
+            <img class="d-block w-100" src="/assets/images/carousel/3.jpeg" alt="Third slide" />
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="/assets/images/carousel/4.jpeg" alt="Fourth slide" />
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">

@@ -40,7 +40,7 @@
           @enderror
           <div class="d-flex align-items-start align-items-sm-center gap-4">
             <img
-              src="{{ $user->avatar_profil != null ? URL::asset('assets/images/account_avatar/' . $user->avatar_profil . '') : URL::asset('assets/images/avatars/no_image.jpg') }}"
+              src="{{ $user->avatar_profil != null ? URL::asset('assets/images/account_avatar/' . $user->avatar_profil . '') : URL::asset('assets/images/account_avatar/default_user.jpg') }}"
               alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
             <div class="button-wrapper">
               <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
@@ -226,7 +226,7 @@
   <script>
     $('#resetButton').on({
       'click': function() {
-        $('#uploadedAvatar').attr('src', '{{ URL::asset('assets/images/avatars/no_image.jpg') }}');
+        $('#uploadedAvatar').attr('src', '{{ URL::asset('assets/images/account_avatar/default_user.jpg') }}');
         $('#upload').val(null);
       }
     });

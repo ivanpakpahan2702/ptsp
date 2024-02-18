@@ -13,5 +13,5 @@
   };
   window.chatify.allAllowedExtensions = chatify.allowedImages.concat(chatify.allowedFiles);
 </script>
-<script src="{{ URL::asset('js/chatify/utils.js') }}"></script>
-<script src="{{ URL::asset('js/chatify/code.js') }}"></script>
+<script src="{{ URL::asset('assets/chatify/js/chatify/utils.js') }}"></script>
+<script src="{{ URL::asset('assets/chatify/js/chatify/code.js') }}"></script>

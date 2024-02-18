@@ -14,16 +14,16 @@
 
 {{-- scripts --}}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="{{ URL::asset('js/chatify/font.awesome.min.js') }}"></script>
-<script src="{{ URL::asset('js/chatify/autosize.js') }}"></script>
-<script src="{{ URL::asset('js/app.js') }}"></script>
+<script src="{{ URL::asset('assets/chatify/js/chatify/font.awesome.min.js') }}"></script>
+<script src="{{ URL::asset('assets/chatify/js/chatify/autosize.js') }}"></script>
+{{-- <script src="{{ URL::asset('js/app.js') }}"></script> --}}
 <script src='https://unpkg.com/nprogress@0.2.0/nprogress.js'></script>
 
 {{-- styles --}}
 <link rel='stylesheet' href='https://unpkg.com/nprogress@0.2.0/nprogress.css' />
-<link href="{{ URL::asset('css/chatify/style.css') }}" rel="stylesheet" />
-<link href="{{ URL::asset('css/chatify/' . $dark_mode . '.mode.css') }}" rel="stylesheet" />
-<link href="{{ URL::asset('css/app.css') }}" rel="stylesheet" />
+<link href="{{ URL::asset('assets/chatify/css/chatify/style.css') }}" rel="stylesheet" />
+<link href="{{ URL::asset('assets/chatify/css/chatify/' . $dark_mode . '.mode.css') }}" rel="stylesheet" />
+{{-- <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet" /> --}}
 
 {{-- Bootstrap --}}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"

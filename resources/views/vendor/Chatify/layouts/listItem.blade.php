@@ -31,7 +31,7 @@
           <span class="activeStatus"></span>
         @endif
         <div class="avatar av-m"
-          style="background-image: url('/assets/images/account_avatar/{{ $user->avatar_profil ?? 'default_user.png' }}');">
+          style="background-image: url('/assets/images/account_avatar/{{ $user->avatar_profil ?? 'default_user.jpg' }}');">
         </div>
       </td>
       {{-- center side --}}
@@ -64,7 +64,7 @@
       {{-- Avatar side --}}
       <td>
         <div class="avatar av-m"
-          style="background-image: url('/assets/images/account_avatar/{{ $user->avatar_profil ?? 'default_user.png' }}');">
+          style="background-image: url('/assets/images/account_avatar/{{ $user->avatar_profil ?? 'default_user.jpg' }}');">
         </div>
       </td>
       {{-- center side --}}
