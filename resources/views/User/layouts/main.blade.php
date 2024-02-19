@@ -78,6 +78,13 @@
       <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.print.min.js"></script>
     @endif
   @endauth
+
+  <!-- Sticky Summernote -->
+  {{-- <script type="text/javascript" src="/assets/summernote_sticky/summernote-sticky-toolbar.js"></script> --}}
+
+  <!--Multiple file uploads-->
+  <link rel="stylesheet" href="/assets/multiple_images_upload/style.css">
+
 </head>
 
 <body class="myscrollbar">

@@ -93,6 +93,10 @@ Route::delete('/delete-profil/{user}', [AccountController::class, 'destroy'])->m
 
 Route::put('/update-dashboard/{dashboard_id}', [UserDashboardController::class, 'update'])->middleware('auth');
 
+Route::delete('/delete-carousel/{carousel_file}', [UserDashboardController::class, 'delete_carousel'])->middleware('auth');
+
+Route::post('/upload-carousel', [UserDashboardController::class, 'upload_carousel'])->middleware('auth');
+
 Route::put('/update-perdata/{perdata_id}', [UserPerdataController::class, 'update'])->middleware('auth');
 
 Route::put('/update-pidana/{pidana_id}', [UserPidanaController::class, 'update'])->middleware('auth');

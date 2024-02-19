@@ -122,3 +122,6 @@
     $('#loading').fadeOut(1000);
   })
 </script>
+<script>
+  alert("Gunakan Chrome Versi Terbaru, karena masih terdapat kendala, pada browser lain terhadap dark mode")
+</script>

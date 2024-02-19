@@ -11,6 +11,9 @@
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fa fa-pen"></i>
           </button>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#carouselModal">
+            <i class="fa fa-camera"></i>
+          </button>
           <hr class="my-3" />
           @if (session()->has('success-dashboard'))
             <script>
@@ -68,36 +71,33 @@
           <div><br></div>
         @endif
       @endauth
-      <div id="carouselExample" class="carousel-fade carousel slide col-md-8 offset-md-2" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
-          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
-          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
-          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3"></button>
+      @if ($carousel_array)
+        <div id="carouselExample" class="carousel-fade carousel slide col-md-8 offset-md-2" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            @foreach ($carousel_array as $carousel)
+              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="{{ $loop->index }}"
+                class={{ $loop->index == 0 ? 'active' : '' }}></button>
+            @endforeach
+          </div>
+          <div class="carousel-inner">
+            @foreach ($carousel_array as $carousel)
+              <div class="carousel-item {{ $loop->index == 0 ? 'active' : '' }}">
+                <img class="d-block w-100" src="/assets/images/carousel/{{ $carousel }}"
+                  alt="{{ $loop->index }} slide" />
+              </div>
+            @endforeach
+          </div>
+          <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
         </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="/assets/images/carousel/1.jpeg" alt="First slide" />
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="/assets/images/carousel/2.jpeg" alt="Second slide" />
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="/assets/images/carousel/3.jpeg" alt="Third slide" />
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="/assets/images/carousel/4.jpeg" alt="Fourth slide" />
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </a>
-      </div>
+        <hr>
+      @endif
       <br>
       @if ($dashboard->first() != null)
         {!! $dashboard->last()->article !!}
@@ -141,4 +141,113 @@
       const show_alert = setTimeout(sweetRegister, 2000);
     </script>
   @endif
+  @if (session()->has('Delete-Carousel'))
+    <script>
+      const sweetDeleteCarousel = () => {
+        Swal.fire({
+          title: "Hapus Carousel!",
+          text: "{{ Session::get('Delete-Carousel') }}",
+          icon: "info"
+        });
+      }
+      const show_alert = setTimeout(sweetDeleteCarousel, 2000);
+    </script>
+  @endif
+
+  @if (session()->has('Upload-Carousel'))
+    <script>
+      const sweetUploadCarousel = () => {
+        Swal.fire({
+          title: "Upload Carousel!",
+          text: "{{ Session::get('Upload-Carousel') }}",
+          icon: "info"
+        });
+      }
+      const show_alert = setTimeout(sweetUploadCarousel, 2000);
+    </script>
+  @endif
+  @auth
+    {{-- Modal For Update Carousel --}}
+    <div class="modal fade" id="carouselModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Foto Carousel</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div align='left'>
+              @foreach ($carousel_array as $carousel)
+                <form action="/delete-carousel/{{ $carousel }}" class="d-inline" method="POST"
+                  onsubmit="return confirm('Apakah anda yakin untuk menghapus foto ini?');">
+                  @csrf
+                  @method('delete')
+                  <span class='pipCarousel'>
+                    <input type="hidden" name="file_name" value="{{ $carousel }}">
+                    <img class='imageThumbCarousel' src='/assets/images/carousel/{{ $carousel }}'
+                      title='{{ $carousel }}' />
+                    <br />
+                    <button type="submit" class='remove mx-auto'>
+                      <i class='fa-solid fa-xmark'></i>
+                    </button>
+                  </span>
+                </form>
+              @endforeach
+            </div>
+            <hr>
+            Upload Foto Baru
+            <br>
+            <br>
+            <form action="/upload-carousel" method="POST" enctype="multipart/form-data">
+              @csrf
+              <input type="hidden" name="total_files" id="total-files">
+              <div class="field" align="left">
+                <input type="file" id="carousel_images" name="carousel_images[]" multiple />
+                @error('carousel_images.*')
+                  <div class="invalid-feedback d-block mb-2">
+                    {{ $message }}
+                  </div>
+                @enderror
+              </div>
+              <br><br>
+              <input type="submit" value="Upload Gambar">
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function() {
+        if (window.File && window.FileList && window.FileReader) {
+          $("#carousel_images").on("change", function(e) {
+            $('.pip').empty();
+            var files = e.target.files,
+              filesLength = files.length;
+            $("#total-files").val(filesLength);
+            for (var i = 0; i < filesLength; i++) {
+              var f = files[i]
+              var fileReader = new FileReader();
+              fileReader.onload = (function(e) {
+                var file = e.target;
+                $("<span class='pip'><img class='imageThumb' src='" + e.target.result + "' title='" + file
+                    .name + "'/><br/><span class='remove'><i class='fa fa-trash'></i></span></span>")
+                  .insertAfter(
+                    "#carousel_images");
+                $(".remove").click(function() {
+                  $(this).parent(".pip").remove();
+                });
+              });
+              fileReader.readAsDataURL(f);
+            }
+            console.log(files);
+          });
+        } else {
+          alert("Your browser doesn't support to File API")
+        }
+      });
+    </script>
+  @endauth
 @endsection
