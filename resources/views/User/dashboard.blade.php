@@ -202,7 +202,15 @@
               @csrf
               <input type="hidden" name="total_files" id="total-files">
               <div class="field" align="left">
-                <input type="file" id="carousel_images" name="carousel_images[]" multiple />
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="input-group form-upload">
+                      <input required type="file" class="form-control" id="carousel_images" name="carousel_images[]"
+                        multiple aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                      <button class="btn btn-secondary" type="submit" id="inputGroupFileAddon04">Upload</button>
+                    </div>
+                  </div>
+                </div>
                 @error('carousel_images.*')
                   <div class="invalid-feedback d-block mb-2">
                     {{ $message }}
@@ -210,7 +218,6 @@
                 @enderror
               </div>
               <br><br>
-              <input type="submit" value="Upload Gambar">
             </form>
           </div>
           <div class="modal-footer">
@@ -237,7 +244,7 @@
                     .result + "' title='" + e.target.fileName +
                     "'/><br/><span class='remove'><i class='fa fa-trash'></i></span></span>")
                   .insertAfter(
-                    "#carousel_images");
+                    ".form-upload");
                 $(".remove").click(function() {
                   $(this).parent(".pip").remove();
                   // Cari Item Yang Mau Dihapus
