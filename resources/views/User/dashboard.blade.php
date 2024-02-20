@@ -230,19 +230,44 @@
             for (var i = 0; i < filesLength; i++) {
               var f = files[i]
               var fileReader = new FileReader();
+              fileReader.fileName = f.name;
               fileReader.onload = (function(e) {
                 var file = e.target;
-                $("<span class='pip'><img class='imageThumb' src='" + e.target.result + "' title='" + file
-                    .name + "'/><br/><span class='remove'><i class='fa fa-trash'></i></span></span>")
+                $("<span class='pip' title='" + e.target.fileName + "'><img class='imageThumb' src='" + e.target
+                    .result + "' title='" + e.target.fileName +
+                    "'/><br/><span class='remove'><i class='fa fa-trash'></i></span></span>")
                   .insertAfter(
                     "#carousel_images");
                 $(".remove").click(function() {
                   $(this).parent(".pip").remove();
+                  // Cari Item Yang Mau Dihapus
+                  $item = ($(this).parent(".pip").attr("title"));
+                  var $array_file = [];
+                  for (var i = 0; i < files.length; i++) {
+                    $array_file.push(files[i].name);
+                  }
+                  // Cari Item Yang Mau Dihapus
+                  removeFileFromFileList($item);
                 });
               });
               fileReader.readAsDataURL(f);
+
+              function removeFileFromFileList(name_file) {
+                const dt = new DataTransfer()
+                const input = document.getElementById('carousel_images')
+                const {
+                  files
+                } = input
+
+                for (let i = 0; i < files.length; i++) {
+                  const file = files[i]
+                  if (name_file !== file.name)
+                    dt.items.add(file) // here you exclude the file. thus removing it.
+                }
+                input.files = dt.files // Assign the updates list
+                console.log(input.files);
+              }
             }
-            console.log(files);
           });
         } else {
           alert("Your browser doesn't support to File API")

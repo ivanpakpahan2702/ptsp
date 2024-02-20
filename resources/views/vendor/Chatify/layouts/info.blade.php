@@ -1,5 +1,5 @@
 {{-- user info and avatar --}}
-<div class="avatar av-l chatify-d-flex">
+<div class="avatar av-l chatify-d-flex" style="background-image:url('/assets/images/logos/icons8-law-96.png');">
   {{-- <img src="assets/images/logos/icons8-law-96.png" alt=""> --}}
 </div>
 <p class="info-name">{{ config('chatify.name') }}</p>
