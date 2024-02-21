@@ -2,7 +2,6 @@
 @section('content')
   <main class="content">
     <div class="container-fluid p-0" style="overflow-x: auto">
-
       <h1 class="h3 mb-3">Selamat Datang di<strong> PTSP-PN Tais</strong></h1>
       <hr class="my-3" />
       @auth
@@ -101,7 +100,56 @@
       <br>
       @if ($dashboard->first() != null)
         {!! $dashboard->last()->article !!}
+        <br>
       @endif
+      <br>
+      <!-- Admin PTSP Gallery -->
+      <div style="text-align: center;"><b><span style="font-size: 24px; font-family: &quot;Comic Sans MS&quot;;">Petugas
+            PTSP</span></b></div>
+      <br>
+      <div class="tz-gallery text-center">
+        <div class="row" style="margin: auto">
+          <div class="col-md-4 p-2">
+            <a href="/assets/images/admin/Kuswandi_Pakpahan.jpg" data-fancybox="gallery"
+              data-caption="Admin PTSP - Kuswandi Pakpahan">
+              <img src="/assets/images/admin/Kuswandi_Pakpahan.jpg" alt="" width="280px" class="rounded">
+            </a>
+            <div class="card-body">
+              Admin PTSP
+              <br>
+              <small>
+                Kuswandi Pakpahan
+              </small>
+            </div>
+          </div>
+          <div class="col-md-4 p-2">
+            <a href="/assets/images/admin/Kuswandi_Pakpahan.jpg" data-fancybox="gallery"
+              data-caption="Admin PTSP - Kuswandi Pakpahan">
+              <img src="/assets/images/admin/Kuswandi_Pakpahan.jpg" alt="" width="280px" class="rounded">
+            </a>
+            <div class="card-body">
+              Admin PTSP
+              <br>
+              <small>
+                Kuswandi Pakpahan
+              </small>
+            </div>
+          </div>
+          <div class="col-md-4 p-2">
+            <a href="/assets/images/admin/Kuswandi_Pakpahan.jpg" data-fancybox="gallery"
+              data-caption="Admin PTSP - Kuswandi Pakpahan">
+              <img src="/assets/images/admin/Kuswandi_Pakpahan.jpg" alt="" width="280px" class="rounded">
+            </a>
+            <div class="card-body">
+              Admin PTSP
+              <br>
+              <small>
+                Kuswandi Pakpahan
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
   <div class="toast-container position-fixed top-0 end-0 p-3 " style="z-index: 9999 ">
@@ -167,119 +215,121 @@
     </script>
   @endif
   @auth
-    {{-- Modal For Update Carousel --}}
-    <div class="modal fade" id="carouselModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Foto Carousel</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div align='left'>
-              @foreach ($carousel_array as $carousel)
-                <form action="/delete-carousel/{{ $carousel }}" class="d-inline" method="POST"
-                  onsubmit="return confirm('Apakah anda yakin untuk menghapus foto ini?');">
-                  @csrf
-                  @method('delete')
-                  <span class='pipCarousel'>
-                    <input type="hidden" name="file_name" value="{{ $carousel }}">
-                    <img class='imageThumbCarousel' src='/assets/images/carousel/{{ $carousel }}'
-                      title='{{ $carousel }}' />
-                    <br />
-                    <button type="submit" class='remove mx-auto'>
-                      <i class='fa-solid fa-xmark'></i>
-                    </button>
-                  </span>
-                </form>
-              @endforeach
+    @if (auth()->user()->role != 'Pengguna' and auth()->user()->role != null)
+      {{-- Modal For Update Carousel --}}
+      <div class="modal fade" id="carouselModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div sclass="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Foto Carousel</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <hr>
-            Upload Foto Baru
-            <br>
-            <br>
-            <form action="/upload-carousel" method="POST" enctype="multipart/form-data">
-              @csrf
-              <input type="hidden" name="total_files" id="total-files">
-              <div class="field" align="left">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="input-group form-upload">
-                      <input required type="file" class="form-control" id="carousel_images" name="carousel_images[]"
-                        multiple aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                      <button class="btn btn-secondary" type="submit" id="inputGroupFileAddon04">Upload</button>
+            <div class="modal-body">
+              <div align='left'>
+                @foreach ($carousel_array as $carousel)
+                  <form action="/delete-carousel/{{ $carousel }}" class="d-inline" method="POST"
+                    onsubmit="return confirm('Apakah anda yakin untuk menghapus foto ini?');">
+                    @csrf
+                    @method('delete')
+                    <span class='pipCarousel'>
+                      <input type="hidden" name="file_name" value="{{ $carousel }}">
+                      <img class='imageThumbCarousel' src='/assets/images/carousel/{{ $carousel }}'
+                        title='{{ $carousel }}' />
+                      <br />
+                      <button type="submit" class='remove mx-auto'>
+                        <i class='fa-solid fa-xmark'></i>
+                      </button>
+                    </span>
+                  </form>
+                @endforeach
+              </div>
+              <hr>
+              Upload Foto Baru
+              <br>
+              <br>
+              <form action="/upload-carousel" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="total_files" id="total-files">
+                <div class="field" align="left">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="input-group form-upload">
+                        <input required type="file" class="form-control" id="carousel_images"
+                          name="carousel_images[]" multiple aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        <button class="btn btn-secondary" type="submit" id="inputGroupFileAddon04">Upload</button>
+                      </div>
                     </div>
                   </div>
+                  @error('carousel_images.*')
+                    <div class="invalid-feedback d-block mb-2">
+                      {{ $message }}
+                    </div>
+                  @enderror
                 </div>
-                @error('carousel_images.*')
-                  <div class="invalid-feedback d-block mb-2">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div>
-              <br><br>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <br><br>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <script>
-      $(document).ready(function() {
-        if (window.File && window.FileList && window.FileReader) {
-          $("#carousel_images").on("change", function(e) {
-            $('.pip').empty();
-            var files = e.target.files,
-              filesLength = files.length;
-            $("#total-files").val(filesLength);
-            for (var i = 0; i < filesLength; i++) {
-              var f = files[i]
-              var fileReader = new FileReader();
-              fileReader.fileName = f.name;
-              fileReader.onload = (function(e) {
-                var file = e.target;
-                $("<span class='pip' title='" + e.target.fileName + "'><img class='imageThumb' src='" + e.target
-                    .result + "' title='" + e.target.fileName +
-                    "'/><br/><span class='remove'><i class='fa fa-trash'></i></span></span>")
-                  .insertAfter(
-                    ".form-upload");
-                $(".remove").click(function() {
-                  $(this).parent(".pip").remove();
-                  // Cari Item Yang Mau Dihapus
-                  $item = ($(this).parent(".pip").attr("title"));
-                  var $array_file = [];
-                  for (var i = 0; i < files.length; i++) {
-                    $array_file.push(files[i].name);
-                  }
-                  // Cari Item Yang Mau Dihapus
-                  removeFileFromFileList($item);
+      <script>
+        $(document).ready(function() {
+          if (window.File && window.FileList && window.FileReader) {
+            $("#carousel_images").on("change", function(e) {
+              $('.pip').empty();
+              var files = e.target.files,
+                filesLength = files.length;
+              $("#total-files").val(filesLength);
+              for (var i = 0; i < filesLength; i++) {
+                var f = files[i]
+                var fileReader = new FileReader();
+                fileReader.fileName = f.name;
+                fileReader.onload = (function(e) {
+                  var file = e.target;
+                  $("<span class='pip' title='" + e.target.fileName + "'><img class='imageThumb' src='" + e.target
+                      .result + "' title='" + e.target.fileName +
+                      "'/><br/><span class='remove'><i class='fa fa-trash'></i></span></span>")
+                    .insertAfter(
+                      ".form-upload");
+                  $(".remove").click(function() {
+                    $(this).parent(".pip").remove();
+                    // Cari Item Yang Mau Dihapus
+                    $item = ($(this).parent(".pip").attr("title"));
+                    var $array_file = [];
+                    for (var i = 0; i < files.length; i++) {
+                      $array_file.push(files[i].name);
+                    }
+                    // Cari Item Yang Mau Dihapus
+                    removeFileFromFileList($item);
+                  });
                 });
-              });
-              fileReader.readAsDataURL(f);
+                fileReader.readAsDataURL(f);
 
-              function removeFileFromFileList(name_file) {
-                const dt = new DataTransfer()
-                const input = document.getElementById('carousel_images')
-                const {
-                  files
-                } = input
+                function removeFileFromFileList(name_file) {
+                  const dt = new DataTransfer()
+                  const input = document.getElementById('carousel_images')
+                  const {
+                    files
+                  } = input
 
-                for (let i = 0; i < files.length; i++) {
-                  const file = files[i]
-                  if (name_file !== file.name)
-                    dt.items.add(file) // here you exclude the file. thus removing it.
+                  for (let i = 0; i < files.length; i++) {
+                    const file = files[i]
+                    if (name_file !== file.name)
+                      dt.items.add(file) // here you exclude the file. thus removing it.
+                  }
+                  input.files = dt.files // Assign the updates list
+                  console.log(input.files);
                 }
-                input.files = dt.files // Assign the updates list
-                console.log(input.files);
               }
-            }
-          });
-        } else {
-          alert("Your browser doesn't support to File API")
-        }
-      });
-    </script>
+            });
+          } else {
+            alert("Your browser doesn't support to File API")
+          }
+        });
+      </script>
+    @endif
   @endauth
 @endsection

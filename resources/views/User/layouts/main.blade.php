@@ -85,6 +85,11 @@
   <!--Multiple file uploads-->
   <link rel="stylesheet" href="/assets/multiple_images_upload/style.css">
 
+  <!-- Gallery -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css'>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="/assets/gallery/style.css">
+
 </head>
 
 <body class="myscrollbar">
@@ -196,6 +201,9 @@
       })
     });
   </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js'></script>
+  <script src="/assets/gallery/script.js"></script>
+
 </body>
 
 </html>
