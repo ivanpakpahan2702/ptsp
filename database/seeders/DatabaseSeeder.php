@@ -307,23 +307,25 @@ class DatabaseSeeder extends Seeder
                         </span>
                     </h5>
                     <ol style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; color: rgb(33, 37, 41); font-family: Cabin, sans-serif; font-size: 16px;">
-                        <li style="margin: 0px; padding: 0px; list-style: none;"><ul><li style="margin-right: 0px; margin-left: 0px; padding: 0px; color: rgb(114, 106, 132);">
-                            <span style=' . '"font-family: \'Comic Sans MS\';"' . '>
-                                Gugatan / Surat Permohonan
-                            </span>
+                        <li style="margin: 0px; padding: 0px; list-style: none;">
+                            <ul>
+                                <li style="margin-right: 0px; margin-left: 0px; padding: 0px; color: rgb(114, 106, 132);">
+                                    <span style=' . '"font-family: \'Comic Sans MS\';"' . '>
+                                        Gugatan / Surat Permohonan
+                                    </span>
+                                </li>
+                                <li style="margin-right: 0px; margin-left: 0px; padding: 0px; color: rgb(114, 106, 132);">
+                                    <span style=' . '"font-family: \'Comic Sans MS\';"' . '>
+                                        Surat Keterangan Tidak Mampu (SKTM) dari Lurah / Kepala Desa, atau Surat Keterangan Tunjangan Sosial lainnya, seperti Kartu Keluarga Miskin (KKM), Kartu Jaminan Kesehatan Masyarakat (JAMKESNAS), Kartu Program Keluarga Harapan (PKH), Kartu Bantuan Langsung Tunai (BLT), atau
+                                    </span>
+                                </li>
+                                <li style="margin-right: 0px; margin-left: 0px; padding: 0px; color: rgb(114, 106, 132);">
+                                    <span style=' . '"font-family: \'Comic Sans MS\';"' . '>
+                                        Surat Pernyataan Tidak Mampu yang ditandatangani Pemohon dan Ketua Pengadilan Negeri
+                                    </span>
+                                </li>
+                            </ul>
                         </li>
-                        <li style="margin-right: 0px; margin-left: 0px; padding: 0px; color: rgb(114, 106, 132);">
-                            <span style=' . '"font-family: \'Comic Sans MS\';"' . '>
-                                Surat Keterangan Tidak Mampu (SKTM) dari Lurah / Kepala Desa, atau Surat Keterangan Tunjangan Sosial lainnya, seperti Kartu Keluarga Miskin (KKM), Kartu Jaminan Kesehatan Masyarakat (JAMKESNAS), Kartu Program Keluarga Harapan (PKH), Kartu Bantuan Langsung Tunai (BLT), atau
-                            </span>
-                        </li>
-                        <li style="margin-right: 0px; margin-left: 0px; padding: 0px; color: rgb(114, 106, 132);">
-                            <span style=' . '"font-family: \'Comic Sans MS\';"' . '>
-                                Surat Pernyataan Tidak Mampu yang ditandatangani Pemohon dan Ketua Pengadilan Negeri
-                            </span>
-                        </li>
-                    </ul>
-                    </li>
                     </ol>
                 </div>
                 <h5 style="margin-right: 0px; margin-bottom: 0.5rem; margin-left: 0px; padding: 0px; font-family: Cabin, sans-serif; line-height: 1.2; color: rgb(0, 0, 0); font-size: 1.25rem;">

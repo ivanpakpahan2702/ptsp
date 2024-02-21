@@ -97,6 +97,10 @@ Route::delete('/delete-carousel/{carousel_file}', [UserDashboardController::clas
 
 Route::post('/upload-carousel', [UserDashboardController::class, 'upload_carousel'])->middleware('auth');
 
+Route::delete('/delete-admin/{admin}', [UserDashboardController::class, 'delete_admin'])->middleware('auth');
+
+Route::post('/upload-admin', [UserDashboardController::class, 'upload_admin'])->middleware('auth');
+
 Route::put('/update-perdata/{perdata_id}', [UserPerdataController::class, 'update'])->middleware('auth');
 
 Route::put('/update-pidana/{pidana_id}', [UserPidanaController::class, 'update'])->middleware('auth');

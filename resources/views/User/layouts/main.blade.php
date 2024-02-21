@@ -87,7 +87,6 @@
 
   <!-- Gallery -->
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css'>
-  <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="/assets/gallery/style.css">
 
 </head>

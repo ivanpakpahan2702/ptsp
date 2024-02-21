@@ -26,10 +26,23 @@ class DashboardController extends Controller
                 }
             }
         }
+        $filename_admin = [];
+        $dir = new DirectoryIterator(public_path() . '/assets/images/admin/');
+        foreach ($dir as $fileinfo) {
+            if (!$fileinfo->isDot()) {
+                if (@is_array(getimagesize(public_path() . '/assets/images/admin/' . $fileinfo->getFilename()))) {
+                    $image = true;
+                    array_push($filename_admin, $fileinfo->getFilename());
+                } else {
+                    $image = false;
+                }
+            }
+        }
         return view('user.dashboard', [
             'title' => 'Dashboard',
             'dashboard' => Dashboard::all(),
             'carousel_array' => $filename_array,
+            'admin_array' => $filename_admin,
         ]);
     }
 
@@ -126,5 +139,39 @@ class DashboardController extends Controller
         }
         return redirect('/')->with('Upload-Carousel', $message);
 
+    }
+    public function delete_admin(Request $request)
+    {
+
+        $file_name = $request->file_name_admin;
+        try {
+            unlink(public_path() . '/assets/images/admin/' . $file_name);
+            $message = 'Foto Berhasil Dihapus';
+        } catch (Exception $e) {
+            $message = 'Gagal menghapus, file mungkin telah terhapus';
+        }
+        return redirect('/')->with('Delete-Admin', $message);
+    }
+
+    public function upload_admin(Request $request)
+    {
+        $request->validate([
+            'admin_images' => 'required|image|file',
+            'nama' => 'required',
+            'role' => 'required',
+        ]);
+
+        try {
+            $file = $request->file('admin_images');
+            $nama_petugas = $request->nama;
+            $role_petugas = $request->role;
+            $admin_file_name = uniqid() . "_" . $role_petugas . "_" . $nama_petugas . "_" . $request->admin_images->getClientOriginalName();
+            $file_path = "/assets/images/admin/" . $admin_file_name;
+            file_put_contents(public_path() . $file_path, file_get_contents($file));
+            $message = 'Data Admin Berhasil Diupload';
+        } catch (Exception $e) {
+            $message = 'Data Admin Gagal Diupload';
+        }
+        return redirect('/')->with('Upload-Admin', $message);
     }
 }
