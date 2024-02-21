@@ -261,7 +261,7 @@ class MessagesController extends Controller
                 $contacts .= Chatify::getContactItem($user);
             }
         } else {
-            $contacts = '<small><p class="message-hint center-el"><span>Daftar Chat Anda Kosong, Silahkan Cari Kontak Admin (Contoh. Perdata,Pidana,Hukum,dll) Di Kolom Pencarian</span></p></small>';
+            $contacts = '<small><p class="message-hint center-el"><span>Daftar Chat Anda Kosong, Silahkan Cari Kontak Admin (Lihat Nama Petugas) Di Kolom Pencarian</span></p></small>';
         }
 
         return Response::json([
@@ -353,11 +353,12 @@ class MessagesController extends Controller
         if ($user_now->role == 'Pengguna') {
             $records = User::where('id', '!=', Auth::user()->id)
                 ->where('role', '!=', "Pengguna")
-                ->where('role', 'LIKE', "%{$input}%")
+            // ->where('role', 'LIKE', "%{$input}%")
+                ->where('name', 'LIKE', "%{$input}%")
                 ->paginate($request->per_page ?? $this->perPage);
         } else {
             $records = User::where('id', '!=', Auth::user()->id)
-                ->where('role', 'LIKE', "%{$input}%")
+                ->where('name', 'LIKE', "%{$input}%")
                 ->paginate($request->per_page ?? $this->perPage);
         }
         foreach ($records->items() as $record) {
