@@ -3,8 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\Dashboard;
+use App\Models\Hukum;
 use App\Models\Perdata;
+use App\Models\Pidana;
 use App\Models\Posbakum;
+use App\Models\Umum;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use \App\Models\User;
@@ -68,17 +71,6 @@ class DatabaseSeeder extends Seeder
             "password" => Hash::make('123456'),
             "role" => 'Admin Hukum',
             "agama" => 'Islam',
-            "jenis_kelamin" => 'p',
-            "nik" => "1002021202000002",
-            "kode_pos" => "32675",
-            'email_verified_at' => now(),
-        ]);
-        User::create([
-            "name" => "Kuswandi Pakpahan",
-            "email" => "kuswandi98.pakpahan@gmail.com",
-            "password" => Hash::make('123456'),
-            "role" => 'Master Admin',
-            "agama" => 'Kristen Protestan',
             "jenis_kelamin" => 'p',
             "nik" => "1002021202000002",
             "kode_pos" => "32675",
@@ -160,6 +152,24 @@ class DatabaseSeeder extends Seeder
                     </div>
                     </body>
                     </html>',
+        ]);
+        User::create([
+            "name" => "Kuswandi Pakpahan",
+            "email" => "kuswandi98.pakpahan@gmail.com",
+            "password" => Hash::make('123456'),
+            "role" => 'Master Admin',
+            "agama" => 'Kristen Protestan',
+            "jenis_kelamin" => 'p',
+            "nik" => "1002021202000002",
+            "kode_pos" => "32675",
+            'email_verified_at' => now(),
+        ]);
+        Pidana::create([
+            "article" => '
+            <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+            <html><body><p><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>Beberapa Pelayanan PTSP Pidana: </span></p><p><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>1) Menerima pelimpahan berkas perkara pidana biasa, Tipikor,&nbsp;</span><span style=' . '"background-color: var(--bs-modal-bg); font-size: 24px; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align); font-family: \'Comic Sans MS\';"' . '>perikanan, singkat, ringan dan cepat/lalu lintas dari Penuntut&nbsp;</span><span style=' . '"background-color: var(--bs-modal-bg); font-size: 24px; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align); font-family: \'Comic Sans MS\';"' . '>Umum/Penyidik.</span></p><p><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>2) Menerima pendaftaran permohonan praperadilan.</span></p><p><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>3) Menerima permohonan perlawanan, banding, kasasi, peninjauan&nbsp;</span><span style=' . '"background-color: var(--bs-modal-bg); font-size: 24px; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align); font-family: \'Comic Sans MS\';"' . '>kembali dan grasi.</span></p><p><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>4) Menerima permohonan pencabutan perlawanan, banding, kasasi&nbsp;</span><span style=' . '"background-color: var(--bs-modal-bg); font-size: 24px; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align); font-family: \'Comic Sans MS\';"' . '>dan peninjauan kembali.</span></p><p><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>5) Menerima permohonan izin/persetujuan penggeledahan dan&nbsp;</span><span style=' . '"background-color: var(--bs-modal-bg); font-size: 24px; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align); font-family: \'Comic Sans MS\';"' . '>menyerahkan izin/persetujuan penggeledahan yang sudah&nbsp;</span><span style=' . '"background-color: var(--bs-modal-bg); font-size: 24px; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align); font-family: \'Comic Sans MS\';"' . '>ditandatangani Ketua Pengadilan.</span></p><p><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>6) Menerima permohonan izin/persetujuan penyitaan dan&nbsp;</span><span style=' . '"background-color: var(--bs-modal-bg); font-size: 24px; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align); font-family: \'Comic Sans MS\';"' . '>menyerahkan izin/persetujuan penyitaan yang sudah&nbsp;</span><span style=' . '"background-color: var(--bs-modal-bg); font-size: 24px; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align); font-family: \'Comic Sans MS\';"' . '>ditandatangi oleh Ketua Pengadilan.</span></p><p><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>7) Menerima permohonan izin/persetujuan pemusnahan barang&nbsp;</span><span style=' . '"background-color: var(--bs-modal-bg); font-size: 24px; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align); font-family: \'Comic Sans MS\';"' . '>bukti dan atau pelelangan barang bukti.</span></p><p><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>8) Menerima permohonan perpanjangan penahanan dan&nbsp;</span><span style=' . '"background-color: var(--bs-modal-bg); font-size: 24px; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align); font-family: \'Comic Sans MS\';"' . '>menyerahkan penetapan perpanjangan penahanan yang sudah&nbsp;</span><span style=' . '"background-color: var(--bs-modal-bg); font-size: 24px; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align); font-family: \'Comic Sans MS\';"' . '>ditandatangani Ketua Pengadilan .</span></p><p><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>9) Menerima permohonan pembantaran dan menyerahkan&nbsp;</span><span style=' . '"background-color: var(--bs-modal-bg); font-size: 24px; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align); font-family: \'Comic Sans MS\';"' . '>persetujuan pembantaran yang sudah ditandatangani Ketua Pengadilan.</span></p><p><span style=' . '"background-color: var(--bs-modal-bg); font-size: 24px; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align); font-family: \'Comic Sans MS\';"' . '>10) Menerima permohonan izin besuk dan menyerahkan pemberian izin besuk.</span></p><p><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>11) Menerima permohonan dan menyerahkan izin berobat bagi Terdakwa yang telah ditandatangani Ketua Pengadilan.</span></p><p><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>12) Menerima Permohonan dan pengambilan turunan putusan kepada pihak berperkara.</span></p><p><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>13) Layanan-layanan lain yang berhubungan dengan proses dan informasi penyelesaian perkara pidana/kekhususan.&nbsp; </span></p><p><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>Anda dapat membaca brosur terkait pelayanan pidana pada file berikut:&nbsp;</span><a href="https://www.pn-tais.go.id/wp-content/uploads/2022/07/Brosur-pidana.pdf" target="_blank"><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>Brosur-Pidana.pdf</span></a></p></body></html>
+
+            ',
         ]);
         Perdata::create([
             "article" => '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
@@ -268,10 +278,7 @@ class DatabaseSeeder extends Seeder
             <body>
                 <h2 style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; font-family: Cabin, sans-serif; line-height: 1.2; color: rgb(91, 50, 180); font-size: 48px;">
                 <span style=' . '"font-family: \'Comic Sans MS\';"' . '>
-                    Dapatkan&nbsp;
-                </span>
-                <span style=' . '"font-family: \'Comic Sans MS\';"' . '>
-                    Bantuan Hukum Bebas Biaya!
+                    Dapatkan Bantuan Hukum Bebas Biaya!
                 </span>
                 </h2>
                 <h2 style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; font-family: Cabin, sans-serif; line-height: 1.2; color: rgb(91, 50, 180); font-size: 48px;">
@@ -370,17 +377,45 @@ class DatabaseSeeder extends Seeder
                         </li>
                     </ol>
                 </h2>
-                <h2 style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; font-family: Cabin, sans-serif; line-height: 1.2; color: rgb(91, 50, 180); font-size: 48px;">
-                    <span style=' . '"font-family: \'Comic Sans MS\';"' . '>
-                        <br>
-                    </span>
-                </h2>
-                <div style="text-align: center;">
-                    <iframe width="320" height="280" src="https://www.youtube.com/embed/vhnfpEBfgqs?si=2978xHAqoP8cmopo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" style="background-color: var(--bs-modal-bg); font-size: var(--bs-body-font-size); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);">
-                    </iframe>
-                </div>
+                <div style="text-align: center;"><br></div><div style="text-align: center;"><br></div><div style="text-align: center;"><img data-filename="WhatsApp Image 2024-02-25 at 20.43.13.jpeg" style="width: 50%;" src="/assets/summernote_assets/17088720780.png"></div><div style="text-align: center;"><img data-filename="WhatsApp Image 2024-02-25 at 20.43.13 (1).jpeg" style="width: 50%;" src="/assets/summernote_assets/17088720791.png"></div><div style="text-align: center;"><img data-filename="WhatsApp Image 2024-02-25 at 20.43.13 (2).jpeg" style="width: 50%;" src="/assets/summernote_assets/17088720792.png"></div><div style="text-align: center;"><img data-filename="WhatsApp Image 2024-02-25 at 20.43.14.jpeg" style="width: 50%;" src="/assets/summernote_assets/17088720793.png"><br></div>
             </body>
             </html>',
         ]);
+        Hukum::create([
+            "article" => '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+            "http://www.w3.org/TR/REC-html40/loose.dtd">
+            <html>
+                <body>
+                    <div>
+                        <span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px"' . '>
+                            Beberapa Pelayanan PTSP Hukum: <br><br>
+                        </span>
+                    </div>
+                    <div>
+                        <span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px"' . '>
+            1) Permohonan waarmerking surat-surat.</span></div><div><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px"' . '>
+            2) Pembuatan surat keterangan tidak tersangkut perkara pidana dan perdata.</span></div><div><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px"' . '>
+            3) Permohonan surat izin yang sudah ditandatangani Ketua&nbsp;</span><span style=' . '"background-color: var(--bs-modal-bg); font-size: 24px; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align); font-family: \'Comic Sans MS\'"' . '>Pengadilan untuk melaksanakan penelitian dan riset.</span></div><div><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px"' . '>4) Permohonan keterangan data perkara dan turunan putusan&nbsp;</span><span style=' . '"background-color: var(--bs-modal-bg); font-size: 24px; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align); font-family: \'Comic Sans MS\'"' . '>perkara yang telah berkekuatan hukum tetap.</span></div><div><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px"' . '>5) Permohonan pendaftaran surat kuasa.</span></div><div><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px"' . '>6) Permohonan legalisasi surat.</span></div><div><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px"' . '>7) Permohon Surat tidak dicabut Hak Pilih</span></div><div><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px"' . '><br></span></div><div><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px"' . '>Anda dapat membaca brosur terkait pelayanan pidana pada file berikut:&nbsp;</span><a href="https://www.pn-tais.go.id/wp-content/uploads/2022/07/BROSUR-HUKUM-2020.pdf" target="_blank"><span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px"' . '>Brosur Hukum-2020.pdf</span></a></div></body></html>
+            ',
+        ]);
+        Umum::create([
+            'article' => '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+            <html>
+                <body>
+                    <div>
+                        <span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>
+                        Beberapa Pelayanan PTSP Umum &amp; Keuangan:&nbsp;
+                        </span>
+                    </div>
+                    <div>
+                        <span style=' . '"font-family: \'Comic Sans MS\'; font-size: 24px;"' . '>
+                            Menerima dan menyerahkan seluruh surat-surat yang ditujukan dan yang dikeluarkan Pengadilan Negeri.
+                        </span>
+                    </div>
+                </body>
+            </html>
+            ',
+        ]);
+
     }
 }

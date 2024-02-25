@@ -9,6 +9,13 @@
   <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
 
     <ul class="navbar-nav flex-row align-items-center ms-auto">
+      <li class="nav-item lh-1 me-3">
+        <div class="box-link border p-3">
+          <a href="https://siwas.mahkamahagung.go.id" class="me-2">Siwas</a>
+          <a href="https://pn-tais.go.id" class="me-2">PN Tais</a>
+          <a href="http://eptsp.badilum.mahkamahagung.go.id" class="me-2">Badilum</a>
+        </div>
+      </li>
       <!-- Place Date Here -->
       <li class="nav-item lh-1 me-3">
         <div id="date" class="date">tanggal</div>

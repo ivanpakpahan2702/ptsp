@@ -87,3 +87,9 @@ body::-webkit-scrollbar-track {
     width: 100%;
     max-width: 600px;
 }
+
+@media (max-width: 767px) {
+    .box-link {
+        display: none;
+    }
+}

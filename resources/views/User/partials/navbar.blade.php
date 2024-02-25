@@ -73,11 +73,46 @@
       <span class="menu-header-text">Fitur</span>
     </li>
 
-    <!-- Posbakum -->
+    <!-- Chat Room -->
     <li class="menu-item">
       <a href="/chat-room" class="menu-link">
         <i class="menu-icon tf-icons bx bx-chat"></i>
         <div>PTSP Chat Room</div>
+      </a>
+    </li>
+    <!-- Aplikasi -->
+    <li class="menu-item">
+      <a href="https://eraterang.badilum.mahkamahagung.go.id" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-sitemap"></i>
+        <div>Eraterang</div>
+      </a>
+    </li>
+    <!-- Aplikasi -->
+    <li class="menu-item">
+      <a href="https://ecourt.mahkamahagung.go.id" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-sitemap"></i>
+        <div>Ecourt</div>
+      </a>
+    </li>
+    <!-- Aplikasi -->
+    <li class="menu-item">
+      <a href="https://sipp.pn-tais.go.id" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-sitemap"></i>
+        <div>SIPP</div>
+      </a>
+    </li>
+    <!-- Aplikasi -->
+    <li class="menu-item">
+      <a href="https://eberpadu.mahkamahagung.go.id/formulir_izin_besuk" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-sitemap"></i>
+        <div>Eberpadu</div>
+      </a>
+    </li>
+    <!-- Aplikasi -->
+    <li class="menu-item">
+      <a href="https://putusan3.mahkamahagung.go.id" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-sitemap"></i>
+        <div>Putusan MA</div>
       </a>
     </li>
     @auth
