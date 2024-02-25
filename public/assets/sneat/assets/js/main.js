@@ -139,7 +139,7 @@ function theTime() {
     var bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember',]
     let nama_bulan = bulan[month];
     
-    today = day + "/" + nama_bulan + "/" + year;
+    today = day + " " + nama_bulan + " " + year;
     
     document.getElementById("date").innerHTML = '';
     document.getElementById("date").innerHTML = today;

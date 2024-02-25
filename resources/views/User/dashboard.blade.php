@@ -117,16 +117,19 @@
           <div class="row" style="margin: auto">
             @foreach ($admin_array as $item)
               <div class="col-md-6 p-2">
-                <a href="/assets/images/admin/{{ $item }}" data-fancybox="gallery"
-                  data-caption="{{ explode('_', $item)[1] }}&nbsp;-&nbsp;{{ explode('_', $item)[2] }}">
-                  <img src="/assets/images/admin/{{ $item }}" alt="" width="280px" class="rounded">
-                </a>
-                <div class="card-body">
-                  {{ explode('_', $item)[1] }}
-                  <br>
-                  <small>
-                    {{ explode('_', $item)[2] }}
-                  </small>
+                <div class="border shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="overflow: auto">
+                  <a href="/assets/images/admin/{{ $item }}" data-fancybox="gallery"
+                    data-caption="{{ explode('_', $item)[1] }}&nbsp;-&nbsp;{{ explode('_', $item)[2] }}">
+                    <img src="/assets/images/admin/{{ $item }}" alt="" class="rounded"
+                      style="max-width:200px;height:auto">
+                  </a>
+                  <div class="card-body">
+                    {{ explode('_', $item)[1] }}
+                    <br>
+                    <small>
+                      {{ explode('_', $item)[2] }}
+                    </small>
+                  </div>
                 </div>
               </div>
             @endforeach

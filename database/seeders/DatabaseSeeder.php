@@ -95,16 +95,22 @@ class DatabaseSeeder extends Seeder
                         </b>
                     </div>
                     <div style="text-align: center;">
-                        <iframe width="320" height="240"
-                        src="https://www.youtube.com/embed/odgUo3LgMQM?si=iiu9iFKfLsq6bTmI"
-                        title="YouTube video player" frameborder="0" allow="accelerometer;
-                        autoplay; clipboard-write; encrypted-media; gyroscope;
-                        picture-in-picture; web-share" allowfullscreen=""
-                        style="background-color: var(--bs-modal-bg);
-                        font-size: var(--bs-body-font-size);
-                        font-weight: var(--bs-body-font-weight);
-                        text-align: var(--bs-body-text-align);">
-                        </iframe>
+                    <center>
+                        <div class="video-wrap">
+                            <div class="video-container text-center mt-5 shadow-lg p-3 mb-5 bg-white rounded">
+                                <iframe
+                                    src="https://www.youtube.com/embed/odgUo3LgMQM?si=iiu9iFKfLsq6bTmI"
+                                    title="YouTube video player" frameborder="0" allow="accelerometer;
+                                    autoplay; clipboard-write; encrypted-media; gyroscope;
+                                    picture-in-picture; web-share" allowfullscreen=""
+                                    style="background-color: var(--bs-modal-bg);
+                                    font-size: var(--bs-body-font-size);
+                                    font-weight: var(--bs-body-font-weight);
+                                    text-align: var(--bs-body-text-align);">
+                                </iframe>
+                            </div>
+                        </div>
+                    </center>
                     </div>
                     <div style="text-align: center;">
                     <br>
@@ -274,28 +280,28 @@ class DatabaseSeeder extends Seeder
                 </span>
                 </h2>
                 <div>
-                    <span style=' . '"color: rgb(114, 106, 132); font-family: \'Comic Sans MS\'; font-size: 20px; text-align: right;"' . '>
+                    <span style=' . '"color: rgb(114, 106, 132); font-family: \'Comic Sans MS\'; font-size: 24px; text-align: right;"' . '>
                         Anda yang kurang mampu berhak
                     </span>
-                    <br style="margin: 0px; padding: 0px; color: rgb(114, 106, 132); font-family: Cabin, sans-serif; font-size: 20px; text-align: right;">
-                    <span style=' . '"color: rgb(114, 106, 132); font-family: \'Comic Sans MS\'; font-size: 20px; text-align: right;"' . '>
+                    <br style="margin: 0px; padding: 0px; color: rgb(114, 106, 132); font-family: Cabin, sans-serif; font-size: 24px; text-align: right;">
+                    <span style=' . '"color: rgb(114, 106, 132); font-family: \'Comic Sans MS\'; font-size: 24px; text-align: right;"' . '>
                         mendapatkan layanan bantuan hukum
                     </span>
-                    <br style="margin: 0px; padding: 0px; color: rgb(114, 106, 132); font-family: Cabin, sans-serif; font-size: 20px; text-align: right;">
-                    <span style=' . '"color: rgb(114, 106, 132); font-family: \'Comic Sans MS\'; font-size: 20px; text-align: right;"' . '>
+                    <br style="margin: 0px; padding: 0px; color: rgb(114, 106, 132); font-family: Cabin, sans-serif; font-size: 24px; text-align: right;">
+                    <span style=' . '"color: rgb(114, 106, 132); font-family: \'Comic Sans MS\'; font-size: 24px; text-align: right;"' . '>
                         secara gratis.
                     </span>
-                    <br style="margin: 0px; padding: 0px; color: rgb(114, 106, 132); font-family: Cabin, sans-serif; font-size: 20px; text-align: right;">
-                    <span style=' . '"color: rgb(114, 106, 132); font-family: \'Comic Sans MS\'; font-size: 20px; text-align: right;"' . '>
+                    <br style="margin: 0px; padding: 0px; color: rgb(114, 106, 132); font-family: Cabin, sans-serif; font-size: 24px; text-align: right;">
+                    <span style=' . '"color: rgb(114, 106, 132); font-family: \'Comic Sans MS\'; font-size: 24px; text-align: right;"' . '>
                         Gunakan hak anda, manfaatkan
                     </span>
-                    <br style="margin: 0px; padding: 0px; color: rgb(114, 106, 132); font-family: Cabin, sans-serif; font-size: 20px; text-align: right;">
-                    <span style=' . '"color: rgb(114, 106, 132); font-family: \'Comic Sans MS\'; font-size: 20px; text-align: right;"' . '>
+                    <br style="margin: 0px; padding: 0px; color: rgb(114, 106, 132); font-family: Cabin, sans-serif; font-size: 24px; text-align: right;">
+                    <span style=' . '"color: rgb(114, 106, 132); font-family: \'Comic Sans MS\'; font-size: 24px; text-align: right;"' . '>
                     POSBAKUM!
                     </span>
                 </div>
                 <div>
-                    <span style="color: rgb(114, 106, 132); font-family: Cabin, sans-serif; font-size: 20px; text-align: right;">
+                    <span style="color: rgb(114, 106, 132); font-family: Cabin, sans-serif; font-size: 24px; text-align: right;">
                     <br>
                     </span>
                 </div>
@@ -306,7 +312,7 @@ class DatabaseSeeder extends Seeder
                             dan lampirkan:
                         </span>
                     </h5>
-                    <ol style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; color: rgb(33, 37, 41); font-family: Cabin, sans-serif; font-size: 16px;">
+                    <ol style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; color: rgb(33, 37, 41); font-family: Cabin, sans-serif; font-size: 20px;">
                         <li style="margin: 0px; padding: 0px; list-style: none;">
                             <ul>
                                 <li style="margin-right: 0px; margin-left: 0px; padding: 0px; color: rgb(114, 106, 132);">
@@ -337,7 +343,7 @@ class DatabaseSeeder extends Seeder
                     </span>
                 </h5>
                 <h2 style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; font-family: Cabin, sans-serif; line-height: 1.2; color: rgb(91, 50, 180); font-size: 48px;">
-                    <ol style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; color: rgb(33, 37, 41); font-size: 16px;">
+                    <ol style="margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; color: rgb(33, 37, 41); font-size: 20px;">
                         <li style="margin: 0px; padding: 0px; list-style: none;">
                             <ul>
                                 <li style="margin-right: 0px; margin-left: 0px; padding: 0px; color: rgb(114, 106, 132);">
