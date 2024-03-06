@@ -11,9 +11,14 @@
     <ul class="navbar-nav flex-row align-items-center ms-auto">
       <li class="nav-item lh-1 me-3">
         <div class="box-link border p-3">
-          <a href="https://siwas.mahkamahagung.go.id" class="me-2" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="top" data-bs-custom-class="tooltip-dark" title="Sistem Informasi Pengawasan Bawas-Mari">Siwas</a>
-          <a href="https://pn-tais.go.id" class="me-2">PN Tais</a>
-          <a href="http://eptsp.badilum.mahkamahagung.go.id" class="me-2">Badilum</a>
+          <a href="https://siwas.mahkamahagung.go.id" class="me-2" data-bs-toggle="tooltip" data-bs-offset="0,4"
+            data-bs-placement="top" data-bs-custom-class="tooltip-dark"
+            title="Sistem Informasi Pengawasan Bawas-Mari">Siwas</a>
+          <a href="https://pn-tais.go.id" class="me-2" data-bs-toggle="tooltip" data-bs-offset="0,4"
+            data-bs-placement="top" data-bs-custom-class="tooltip-dark" title="Pengadilan Negeri Tais">PN Tais</a>
+          <a href="http://eptsp.badilum.mahkamahagung.go.id" class="me-2" data-bs-toggle="tooltip"
+            data-bs-offset="0,4" data-bs-placement="top" data-bs-custom-class="tooltip-dark"
+            title="Lentera (Layanan Elektronik Terpadu) Badilum MA RI">Lentera</a>
         </div>
       </li>
       <!-- Place Date Here -->

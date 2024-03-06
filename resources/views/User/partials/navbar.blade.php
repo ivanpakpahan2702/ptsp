@@ -82,37 +82,49 @@
     </li>
     <!-- Aplikasi -->
     <li class="menu-item">
-      <a href="https://eraterang.badilum.mahkamahagung.go.id" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-sitemap"></i>
+      <a href="https://eraterang.badilum.mahkamahagung.go.id" class="menu-link" data-bs-toggle="tooltip"
+        data-bs-offset="0,4" data-bs-placement="top" data-bs-custom-class="tooltip-dark"
+        title="Elektronik Surat Keterangan Badilum MA RI">
+        <img src="https://www.pn-tais.go.id/wp-content/uploads/2021/04/Untitled-design-2.png" alt="logo"
+          width="25" class="me-2">
         <div>Eraterang</div>
       </a>
     </li>
     <!-- Aplikasi -->
     <li class="menu-item">
-      <a href="https://ecourt.mahkamahagung.go.id" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-sitemap"></i>
+      <a href="https://ecourt.mahkamahagung.go.id" class="menu-link" data-bs-toggle="tooltip" data-bs-offset="0,4"
+        data-bs-placement="top" data-bs-custom-class="tooltip-dark" title="e-Court Mahkamah Agung RI">
+        <img src="https://www.pn-tais.go.id/wp-content/uploads/2021/04/Untitled-design-3.png" alt="logo"
+          width="25" class="me-2">
         <div>Ecourt</div>
       </a>
     </li>
     <!-- Aplikasi -->
     <li class="menu-item">
-      <a href="https://sipp.pn-tais.go.id" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-sitemap"></i>
+      <a href="https://sipp.pn-tais.go.id" class="menu-link" data-bs-toggle="tooltip" data-bs-offset="0,4"
+        data-bs-placement="top" data-bs-custom-class="tooltip-dark"
+        title="Sistem Informasi Penelusuran Perkara PN Tais">
+        <img src="https://www.pn-tais.go.id/wp-content/uploads/2021/04/quard-sipp.png" alt="logo" width="25"
+          class="me-2">
         <div>SIPP</div>
       </a>
     </li>
     <!-- Aplikasi -->
     <li class="menu-item">
-      <a href="https://eberpadu.mahkamahagung.go.id/formulir_izin_besuk" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-sitemap"></i>
-        <div>Eberpadu</div>
+      <a href="https://putusan3.mahkamahagung.go.id" class="menu-link">
+        <img src="https://www.pn-tais.go.id/wp-content/uploads/2021/04/logo-dirput-1.png" alt="logo" width="25"
+          class="me-2">
+        <div>Direktori Putusan PN-Tais</div>
       </a>
     </li>
     <!-- Aplikasi -->
     <li class="menu-item">
-      <a href="https://putusan3.mahkamahagung.go.id" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-sitemap"></i>
-        <div>Putusan MA</div>
+      <a href="https://eberpadu.mahkamahagung.go.id/#layanan" class="menu-link" data-bs-toggle="tooltip"
+        data-bs-offset="0,4" data-bs-placement="top" data-bs-custom-class="tooltip-dark"
+        title="Elektronik Berkas Pidana Terpadu MA RI">
+        <img src="https://eberpadu.mahkamahagung.go.id/assets/berpadu/images/logo-full.png" alt="logo"
+          width="25" class="me-2">
+        <div>E-Berpadu</div>
       </a>
     </li>
     @auth
@@ -125,6 +137,11 @@
         </li>
       @endif
     @endauth
+    <li class="menu-item">
+      <a href="#" class="menu-link">
+        <div class="mb-5"></div>
+      </a>
+    </li>
   </ul>
 </aside>
 <!-- / Menu -->
