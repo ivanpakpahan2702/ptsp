@@ -2,7 +2,7 @@
 <!-- Loader -->
 <div id="loading" class="">
   <div class="spinner-grow text-secondary" role="status">
-    <span class="visually-hidden">Loading...</span>
+    <span class="visually-hidden">Memuat...</span>
   </div>
 </div>
 <div class="messenger">
@@ -11,7 +11,8 @@
     {{-- Header and search bar --}}
     <div class="m-header">
       <nav>
-        <a href="#"><i class="fas fa-inbox"></i> <span class="messenger-headTitle">PTSP Chat Room</span> </a>
+        <a href="/"><img src="/assets/images/logos/icons8-law-96.png" alt="logo" width="30"><span
+            class="messenger-headTitle">PTSP Chat Room</span> </a>
         {{-- header buttons --}}
         <nav class="m-header-right">
           <a href="#"><i class="fas fa-cog settings-btn"></i></a>
