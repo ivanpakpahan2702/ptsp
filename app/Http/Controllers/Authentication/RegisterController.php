@@ -12,11 +12,7 @@ use Illuminate\Support\Facades\Hash;
 class RegisterController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         return view('authentication.register', [
@@ -24,12 +20,7 @@ class RegisterController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreHukumRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         $validatedData = $request->validate(
