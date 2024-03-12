@@ -58,11 +58,11 @@ Route::get('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 // Email Verify
 
-Route::get('/email/verify', [EmailVerifyController::class, 'index'])->middleware('auth')->middleware('auth')->name('verification.notice');
+Route::get('/email/verify', [EmailVerifyController::class, 'index'])->middleware('auth')->name('verification.notice');
 
 Route::post('/email/verification-notification', [EmailVerifyController::class, 'resend'])->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-Route::get('/email/verify/{id}/{hash}', [EmailVerifyController::class, 'handle'])->middleware('auth')->middleware('auth')->middleware(['auth', 'signed'])->name('verification.verify');
+Route::get('/email/verify/{id}/{hash}', [EmailVerifyController::class, 'handle'])->middleware(['auth', 'signed'])->name('verification.verify');
 
 // Email Verify
 
